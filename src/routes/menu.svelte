@@ -2,6 +2,7 @@
 import type { Asset } from "../lib/types"
 export var assets = <Asset[]>{}
 </script>
+
 <div class="menu-container">
     <div class="menu">
         <!-- {{assets}} -->

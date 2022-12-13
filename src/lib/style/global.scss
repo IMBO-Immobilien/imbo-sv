@@ -1,0 +1,110 @@
+:root {
+    --padding-top: 45px;
+    --padding-side: 45px;
+    --gap: 50px;
+    --gap-rel: 5vw;
+    --gap-mob: 20px;
+    --margin-mob: 0px;
+
+    --text-width: 700px;
+    --content-width: 70vw;
+    --content-width-mob: 70vw;
+    --image-width: 800px;
+
+    --medium: 1300px;
+    --mobile: 450px;
+}
+
+$mobile: 600px;
+$mobile-hor: 700px;
+$medium: 1300px;
+
+body {
+    // font-family: "Mona Sans", sans-serif;
+    font-family: "Univers Next Pro", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 1s;
+}
+
+body, html {
+    @include descroll;
+    box-sizing: border-box;
+    // box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+.front-grid {
+    display: grid;
+    grid-template-columns: 150px 2fr;
+    grid-template-areas: "thumb text";
+    gap: var(--gap-rel);
+}
+
+// *,
+// *:before,
+// *:after {
+//     box-sizing: inherit;
+// }
+
+h1 {
+    font-weight: unset;
+    font-size:unset;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: color .5s;
+    color: #444e58;
+    &:hover {
+        color: black;
+        // color: rgb(55, 121, 245);
+    }
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+// a:link {
+//     text-decoration: none;
+// }
+
+// a:visited {
+//     text-decoration: none;
+// }
+
+// a:hover {
+//     text-decoration:cornflowerblue;
+// }
+
+// a:active {
+//     text-decoration: none;
+// }
+
+.is-active {
+    color: black;
+    font-weight: Bold;
+}
+
+
+
+@font-face {
+    font-family: 'Univers Next Pro';
+    src: local(''),
+        url('@/assets/fonts/UniversNext/subset-UniversNextPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Univers Next Pro';
+    src: local(''),
+        url('@/assets/fonts/UniversNext/subset-UniversNextPro-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-display: block;
+}
