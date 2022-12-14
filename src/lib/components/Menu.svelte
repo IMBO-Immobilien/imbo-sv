@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Asset } from "../lib/types"
+import type { Asset } from '../types'
 export var assets = <Asset[]>{}
 </script>
 
