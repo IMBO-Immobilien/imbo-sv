@@ -1,11 +1,14 @@
 import client from "$lib/sanityClient"
 import { siteData } from '$lib/queries'
+import type { Site } from '$lib/types'
 
 export let get = async () => {
-    let site = await client.fetch(siteData)
+    const site = await client.fetch(siteData)
     console.log("site", site)
     return {
-        site
+        body: {
+            site
+        }
     }
 }
 

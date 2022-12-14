@@ -4,9 +4,9 @@
 	@import "./lib/style/global.scss";
 </style>
 
-<script>
-	import './app.ts'
-	let site = {}
+<script lang="ts">
+	// import { site } from './app.ts'
+	export let site = Array as ()=>any[] 
 </script>
 
 <div>{site}</div>
