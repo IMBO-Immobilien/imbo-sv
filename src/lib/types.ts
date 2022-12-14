@@ -66,30 +66,30 @@ export interface Address {
 }
 
 export interface Site {
-    greetingDE: Block[]
-    greetingEN: Block[]
-    description: string
+    greetingDE?: Block[]
+    greetingEN?: Block[]
+    description?: string
     siteName: string
-    companyName: Block[]
-    companyAddress: Address
-    contactEmail: string
+    companyName?: Block[]
+    companyAddress?: Address
+    contactEmail?: string
 
-    impressum: Block[]
-    about: {
+    impressum?: Block[]
+    about?: {
         management: People[],
         webDesign: People[],
     }
-    copyrightDE: Block[]
-    extendedCopyrightDE: Block[]
-    copyrightEN: Block[]
-    extendedCopyrightEN: Block[]
-    openingHoursDE: string
-    openingHoursEN: string
-    image: IMG
-    logo: IMG
-    alt: IMG
-    opengraph: Opengraph
-    slug: Slug
+    copyrightDE?: Block[]
+    extendedCopyrightDE?: Block[]
+    copyrightEN?: Block[]
+    extendedCopyrightEN?: Block[]
+    openingHoursDE?: string
+    openingHoursEN?: string
+    image?: IMG
+    logo?: IMG
+    alt?: IMG
+    opengraph?: Opengraph
+    slug?: Slug
 }
 
 export interface Opengraph {
