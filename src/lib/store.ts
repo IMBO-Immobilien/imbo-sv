@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
 import type { Asset, Site } from './types'
 
-export const assets = writable([] as Asset[])
-export const site = writable({} as Site)
+export const assetData = writable([] as Asset[])
+export const siteData = writable({} as Site)

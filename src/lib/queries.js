@@ -1,4 +1,4 @@
-export const siteData = `*[_type == "site"]{
+export const siteDataQuery = `*[_type == "site"]{
     ...,
     "logo": logo {
         caption,
@@ -26,7 +26,7 @@ export const siteData = `*[_type == "site"]{
     }
 }`
 
-export const assetData = `*[_type == "assets"]{
+export const assetDataQuery = `*[_type == "assets"]{
     menuName,
     nameDE,
     nameEN,
