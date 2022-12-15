@@ -2,7 +2,7 @@
 <nav>
     <div class="sidebar" id="sidebar">
         <div class="foot-element">
-            <a href="/about">Kontakt</a>
+            <a href="/contact">Kontakt</a>
             <a href="/about">Impressum</a>
         </div>
     </div>
