@@ -28,7 +28,7 @@
     // transition: background-color 1s;
 }
 
-body, html {
+:global(html) {
     // @include descroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -56,13 +56,13 @@ body, html {
 //     box-sizing: inherit;
 // }
 
-h1 {
+:global(h1) {
     font-weight: unset;
     font-size:unset;
     margin: 0;
 }
 
-a {
+:global(a) {
     text-decoration: none;
     transition: color .5s;
     color: #444e58;
