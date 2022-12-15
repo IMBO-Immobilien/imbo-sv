@@ -7,6 +7,13 @@ const config = {
 		port:2000,
 		host: true,
 		strictPort:false,
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: '@use "./lib/style/global.scss" as *;'
+			}
+		}
 	}
 }
 

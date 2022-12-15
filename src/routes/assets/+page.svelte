@@ -1,18 +1,13 @@
 <h1>All Assets</h1>
-{site}
 
-<script lang="ts">
-    import { page } from '$app/stores'
-    import client from "$lib/sanityClient"
-    import { siteData } from '$lib/queries'
-    // import type { Site } from '$lib/types'
-    export let site = {}
+<script lang=ts>
+import type { PageData } from './$types'
+/** @type {import('./$types').PageData} */
 
-    export const get = async () => {
-        let d = await client.fetch(siteData) 
-        site = d[0] 
-        console.log("site", site)
-    }
-    get()
+export let data:PageData
+let { site } = data
+
+$: ({ site } = data)
+$: console.log("site",site)
 
 </script>

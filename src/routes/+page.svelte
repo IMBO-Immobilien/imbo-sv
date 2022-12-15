@@ -1,7 +1,7 @@
 <div id="content" class="front-container">
     <h1 class="presentation">
         <div class="front-grid">
-            {site.alt}
+            <!-- { JSON.stringify(site) } -->
             <!-- <Content class="welcome" :blocks="greet()" /> -->
             <!-- <Content class="company" :blocks="site.companyName" /> -->
         </div>
@@ -12,17 +12,15 @@
 </div>
 
 
-<script lang="ts">
-    /** @type {import('./$types').PageData} */
-    import type { Site } from '$lib/types'
-    interface Data {
-        site: Site[]
-    }
+<script lang=ts>
+import type { PageData } from './$types'
+/** @type {import('./$types').PageData} */
 
-    export const data = {} as Data
-    export const site:Site = data.site[0]
-    console.log("site",site)
-    // import { site } from '../lib/store'
+export let data:PageData
+let { site } = data
+
+$: ({ site } = data)
+$: console.log("site",site)
+// import { site } from '../lib/store'
   
-    // console.log($site) // [{ slug: 'profile', title: 'Profile' }, ...]
 </script>
