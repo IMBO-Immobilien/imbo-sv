@@ -20,7 +20,7 @@
 // $medium: 1300px;
 
 
-body {
+:global(body) {
     // font-family: "Mona Sans", sans-serif;
     font-family: "Univers Next Pro", sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -28,6 +28,8 @@
 </script>
 
 <style lang="scss">
+// @use '../lib/style/global.scss';
+
 .show-back {
     opacity: 1;
     pointer-events: all;
