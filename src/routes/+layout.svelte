@@ -2,8 +2,8 @@
     <div class="head"><Logo /></div>
     <div class="side-bar"><Sidebar /></div>
     <div class="copyright"><Copyright /></div>
-    { version }
-    { browser }
+    <!-- { version }
+    { browser } -->
 </div>
 
 <slot></slot>
@@ -69,6 +69,8 @@
     width: calc(100vw - var(--gap) * 2);
     margin-left: var(--gap);
     margin-right: var(--gap);
+
+    font-family: "Univers Next Pro", sans-serif;
 }
 
 .head {
