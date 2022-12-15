@@ -1,6 +1,8 @@
 <div id="content" class="front-container">
     <h1 class="presentation">
         <div class="front-grid">
+            <!-- { JSON.stringify(site.companyName) } -->
+            <Content blocks={site.companyName} />
             <!-- { JSON.stringify(site) } -->
             <!-- <Content class="welcome" :blocks="greet()" /> -->
             <!-- <Content class="company" :blocks="site.companyName" /> -->
@@ -13,6 +15,7 @@
 
 
 <script lang=ts>
+import Content from '$lib/components/Content.svelte'
 import type { PageData } from './$types'
 /** @type {import('./$types').PageData} */
 

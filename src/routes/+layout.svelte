@@ -2,6 +2,8 @@
     <div class="head"><Logo /></div>
     <div class="side-bar"><Sidebar /></div>
     <div class="copyright"><Copyright /></div>
+    { version }
+    { browser }
 </div>
 
 <slot></slot>
@@ -10,6 +12,8 @@
     import Logo from '$lib/components/Logo.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
     import Copyright from '$lib/components/Copyright.svelte'
+
+    import { browser, building, dev, version } from '$app/environment'
 </script>
 
 <style lang="scss">
