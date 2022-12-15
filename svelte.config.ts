@@ -5,20 +5,20 @@ import { vitePreprocess } from '@sveltejs/kit/vite'
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [vitePreprocess()],
-
+	
 	kit: {
 		adapter: adapter(),
 		vite: {
-            css: {
-                preprocessorOptions: {
-                    scss: {
-                        additionalData: '@use "./lib/style/global.scss" as *;'
+			css: {
+				preprocessorOptions: {
+					scss: {
+						additionalData: '@use "./lib/style/global.scss" as *;'
                     }
 				}
 			}
 		}
-	}
+	},
+	preprocess: [vitePreprocess()],
 }
 
 export default config

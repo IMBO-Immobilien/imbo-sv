@@ -87,7 +87,8 @@ export interface Site {
     openingHoursEN?: string
     image?: IMG
     logo?: IMG
-    alt?: IMG
+    alt?: string
+    // alt?: IMG
     opengraph?: Opengraph
     slug?: Slug
 }
