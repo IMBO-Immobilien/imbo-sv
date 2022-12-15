@@ -12,8 +12,19 @@
     import Logo from '$lib/components/Logo.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
     import Copyright from '$lib/components/Copyright.svelte'
+    import type { PageData } from './$types'
+    // import Content from '$lib/components/Content.svelte'
+    /** @type {import('./$types').PageData} */
 
-    import { browser, building, dev, version } from '$app/environment'
+    export let data:PageData
+    let { site } = data
+
+    // $: ({ site } = data)
+    // $: console.log("site",site)
+    import { siteData } from '../lib/store'
+    siteData.set(site)
+
+    // import { browser, building, dev, version } from '$app/environment'
 </script>
 
 <style lang="scss">
