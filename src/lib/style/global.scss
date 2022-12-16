@@ -19,6 +19,13 @@
 // $mobile-hor: 700px;
 // $medium: 1300px;
 
+:global(*),
+:global(*::before),
+:global(*::after) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :global(body) {
     // font-family: "Mona Sans", sans-serif;
@@ -37,10 +44,10 @@
         display: none; 
     }
 
-    box-sizing: border-box;
-    // box-sizing: content-box;
-    margin: 0;
-    padding: 0;
+    // box-sizing: border-box;
+    // // box-sizing: content-box;
+    // margin: 0;
+    // padding: 0;
 }
 
 .front-grid {
