@@ -1,7 +1,7 @@
 export const siteDataQuery = `*[_type == "site"]{
     ...,
     "logo": logo {
-        caption,
+        alt,
         "url": image.asset->url,
         "dimensions": image.asset->metadata.dimensions
     },
@@ -12,10 +12,6 @@ export const siteDataQuery = `*[_type == "site"]{
             "dimensions": asset.metadata->dimensions,
         }
     },
-    // "image": image {
-    //     "url": asset->url,
-    //     "dimensions": asset.metadata->dimensions,
-    // },
     "about": about {
         management[]->{
             name
@@ -43,6 +39,7 @@ export const assetOverviewQuery = `*[_type == "assets"]{
         crop,
         hotspot,
         slug,
+        alt,
         "url": asset->url,
         "dimensions": asset->metadata.dimensions
     },

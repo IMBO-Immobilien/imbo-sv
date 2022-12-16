@@ -3,7 +3,7 @@
     {#each assets as a}
     <a 
         class="asset-overview" 
-        href="{'/assets-asset' + a.slug.current}"
+        href="{'/assets/' + a.slug.current}"
     >
         <div class="asset front-grid">
             <!-- {{a.overviewImage.dimensions}} -->
@@ -11,6 +11,7 @@
                 <IMGSrc
                     width={300}
                     src={a.overviewImage.url}
+                    alt={a.overviewImage.alt}
                     quality={50}
                     crop={a.overviewImage.crop}
                     dimensions={a.overviewImage.dimensions}
@@ -70,3 +71,36 @@
 
     export let assets:Asset[] = []
 </script>
+
+<style lang="scss">
+.front-grid {
+    display: grid;
+    grid-template-columns: 150px 2fr;
+    grid-template-areas: "thumb text";
+    gap: var(--gap-rel);
+}
+
+.asset-overview {
+    width: 50vw;
+    color: black;
+}
+.asset-text {
+    // width: 50vw;
+    color: black;
+    grid-area: text;
+}
+.asset-name {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: calc(var(--gap) / 2);
+}
+.thumb {
+    grid-area: thumb;
+}
+.asset-description {
+    // grid-area: text;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+</style>

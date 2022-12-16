@@ -38,6 +38,8 @@ export interface Dimensions {
 }
 
 export interface IMG {
+    alt: string
+    caption: string
     title: string
     titleEN: string
     image: HTMLPictureElement

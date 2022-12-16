@@ -1,15 +1,20 @@
 <nav class="head-container fadein" >
     <a href="/">
         <img 
-            alt="site.logo.caption" 
+            alt={logo.alt} 
             class="logo" 
-            src="imbo-logo.svg" 
+            src={logo.url} 
             loading="lazy"
             width="100%"
             height="auto"
         />
     </a>
 </nav>
+
+<script lang="ts">
+    import type { IMG } from "$lib/types";
+    export let logo:IMG
+</script>
 
 <style lang="scss">
 .logo {
