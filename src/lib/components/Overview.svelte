@@ -7,16 +7,17 @@
     >
         <div class="asset front-grid">
             <!-- {{a.overviewImage.dimensions}} -->
-            <img-src
-                :width="300"
-                :src="a.overviewImage.url"
-                :quality="50"
-                :crop="a.overviewImage.crop"
-                :dimensions="a.overviewImage.dimensions"
-                fit="inside"
-                :loading="true"
-                class="thumb"
-            />
+            <div class="thumb">
+                <IMGSrc
+                    width={300}
+                    src={a.overviewImage.url}
+                    quality={50}
+                    crop={a.overviewImage.crop}
+                    dimensions={a.overviewImage.dimensions}
+                />
+            </div>
+                <!-- loading="true" -->
+                <!-- fit="inside" -->
                 <!-- :imgAsset="a.overviewImage" -->
             <div class="asset-text">
                 <div class="asset-name">{getText(a, 'name')}</div>
@@ -32,6 +33,7 @@
 <script lang="ts">
     import type { Asset, Block } from '$lib/types'
     import Content from './Content.svelte'
+    import IMGSrc from './IMGSrc.svelte'
     import { browserLang } from '$lib/store'
 
     const getBlocks = (a: Asset, k: string):Block[] => {

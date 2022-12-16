@@ -7,7 +7,7 @@
             class="lang-item { langClass(l.code) }"
             on:click={ () => toggleLocale(l.iso) }
             on:keydown
-            >
+        >
             {l.iso}
         </div>
         { /each }
