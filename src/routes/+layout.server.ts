@@ -5,6 +5,8 @@ import type { RouteParams } from './$types'
 
 import { siteData, assetData } from '$lib/store'
 
+export const prerender = true
+
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (params: RouteParams) =>{
     const siteFetch = await client.fetch(siteDataQuery) as Site[]
