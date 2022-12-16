@@ -1,12 +1,12 @@
 <div class="wrapper">
     <div class="head"><Logo /></div>
     <div class="side-bar"><Sidebar /></div>
-    <div class="copyright"><Copyright /></div>
+    <div class="main"><slot /></div>
+    <div class="copyright"><Copyright site={site} /></div>
     <!-- { version }
     { browser } -->
 </div>
 
-<slot></slot>
 
 <script lang=ts>
     import Logo from '$lib/components/Logo.svelte'
@@ -30,7 +30,6 @@
 </script>
 
 <style lang="scss">
-// @use '../lib/style/global.scss';
 
 .show-back {
     opacity: 1;
@@ -101,5 +100,45 @@
 .side-bar {
     overflow-y: hidden;
     overflow-x: visible;
+}
+
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+    .wrapper {
+        position: relative;
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .side-bar {
+        overflow-x: visible;
+    }
+
+    .main {
+        max-width: 100vw;
+    }
+
+    .head {
+        height: 95vh;
+        overflow-x: visible;
+    }
+
+    .crumbs {
+        // top: 2px;
+        left: 10px;
+    }
+
+    .copyright {
+        right: var(--gap-mob);
+        bottom: var(--gap-mob);
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 700px) {
+    .wrapper {
+        width: 100vw;
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+    }
 }
 </style>

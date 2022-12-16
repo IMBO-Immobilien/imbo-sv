@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Asset } from '../types'
-export var assets = <Asset[]>{}
+export let assets = <Asset[]>[]
 </script>
 
 <div class="menu-container">

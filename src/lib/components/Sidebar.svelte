@@ -1,15 +1,31 @@
 <!-- <Menu /> -->
 <nav>
     <div class="sidebar" id="sidebar">
+        <div on:click={toggleSideBar} class="hamburger" >
+            <Hamburger  />
+        </div>
+        <div class="spacer" />
+        <div class="menu"><Menu /></div>
         <div class="foot-element">
-            <a href="/contact">Kontakt</a>
-            <a href="/about">Impressum</a>
+            <div class="menu-link" >
+                <Lang />
+            </div>
+            <a class="menu-link" href="/contact">Kontakt</a>
+            <a class="menu-link" href="/about">Impressum</a>
         </div>
     </div>
 </nav>
 
 <script lang="ts">
-    // import Menu from './Menu.svelte' 
+    import Menu from './Menu.svelte' 
+    import { sideBarState, siteData } from '$lib/store'
+    import Hamburger from './Hamburger.svelte'
+    import Lang from './Lang.svelte'
+
+    const toggleSideBar = () => {
+        sideBarState.set(!$sideBarState)
+    }
+
 </script>
 
 <style lang="scss">
