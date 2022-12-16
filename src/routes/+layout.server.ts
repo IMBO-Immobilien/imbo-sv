@@ -14,8 +14,6 @@ export const load = async (params: RouteParams) =>{
     
     const assetFetch = await client.fetch(assetOverviewQuery) as Asset[]
     assetData.set(assetFetch)
-    // console.log("site", data)
-    // console.log("site", params)
 
     return {
         site: siteFetch[0],

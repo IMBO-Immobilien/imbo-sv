@@ -13,18 +13,20 @@
     import Sidebar from '$lib/components/Sidebar.svelte'
     import Copyright from '$lib/components/Copyright.svelte'
     import type { PageData } from './$types'
-    // import Content from '$lib/components/Content.svelte'
+    import { siteData, browserLang } from '../lib/store'
+    import { browser, version } from '$app/environment'
+
     /** @type {import('./$types').PageData} */
 
     export let data:PageData
     let { site } = data
 
-    // $: ({ site } = data)
-    // $: console.log("site",site)
-    import { siteData } from '../lib/store'
     siteData.set(site)
 
-    // import { browser, building, dev, version } from '$app/environment'
+    if ( browser ) {
+        browserLang.set(navigator.language)
+    }
+
 </script>
 
 <style lang="scss">

@@ -19,22 +19,25 @@
             />
                 <!-- :imgAsset="a.overviewImage" -->
             <div class="asset-text">
-                <div class="asset-name">{{getText(a, 'name')}}</div>
-                <Content class="asset-description" blocks="{getText(a, 'generalShort')}" />
+                <div class="asset-name">{getText(a, 'name')}</div>
+                <div class="asset-description">
+                    <Content blocks="{getBlocks(a, 'generalShort')}" />
+                </div>
             </div>
         </div>
-    </n-link>
+    </a>
+    {/each}
 </div>
 
-{/each}
-
 <script lang="ts">
-    import type { Asset } from '$lib/types'
-    // const site = get(siteData)
-    const getText = (a: Asset, k: string):string => {
+    import type { Asset, Block } from '$lib/types'
+    import Content from './Content.svelte'
+    import { browserLang } from '$lib/store'
+
+    const getBlocks = (a: Asset, k: string):Block[] => {
             let keyDE = k + "DE"
             let keyEN = k + "EN"
-            switch (this.$i18n.locale) {
+            switch ($browserLang) {
                 case "de":
                     return a[keyDE]
 
@@ -46,6 +49,22 @@
                     }
             }
         }
+    // const site = get(siteData)
+    const getText = (a: Asset, k: string):string => {
+        let keyDE = k + "DE"
+        let keyEN = k + "EN"
+        switch ($browserLang) {
+            case "de":
+                return a[keyDE]
+
+            default:
+                if (typeof a[keyEN] !== "undefined"){
+                    return a[keyEN]
+                } else {
+                    return a[keyDE]
+                }
+        }
+    }
 
     export let assets:Asset[] = []
 </script>
