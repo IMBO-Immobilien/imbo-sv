@@ -22,7 +22,7 @@ export let dimensions:Dimensions
 export let crop:Crop
 // export let hotspot:Hotspot
 // export let imgAsset:IMG
-export let opacity = "0"
+export let opacity = "1"
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
