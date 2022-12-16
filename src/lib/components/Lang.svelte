@@ -4,13 +4,14 @@
             aria-label={ l.iso }
             tabindex={idx}
             role="button"
-            class="lang-item"
+            class="lang-item { langClass(l.code) }"
             on:click={ () => toggleLocale(l.iso) }
+            on:keydown
             >
-            <!-- to="#" -->
-        {l.iso}
+            {l.iso}
         </div>
-    { /each }
+        { /each }
+        <!-- to="#" -->
 </div>
 
 
@@ -18,6 +19,10 @@
     const toggleLocale = (l: string) => {
         console.log("l",l)
         browserLang.set(l)
+    }
+
+    const langClass = (l: string):string => {
+        return l === $browserLang ? "is-active" : ""
     }
 
     import { locales, browserLang } from '$lib/store'
