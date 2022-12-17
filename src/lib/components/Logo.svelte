@@ -13,7 +13,7 @@
 
 <script lang="ts">
     import type { IMG } from "$lib/types";
-    export let logo:IMG
+    export let logo = <IMG>{}
 </script>
 
 <style lang="scss">
