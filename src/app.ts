@@ -1,3 +1,4 @@
+import  '$lib/style/global.scss';
 // import client from "$lib/sanityClient"
 // import { siteData } from '$lib/queries'
 // import type { Site } from '$lib/types'

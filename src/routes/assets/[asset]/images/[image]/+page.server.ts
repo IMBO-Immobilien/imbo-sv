@@ -7,9 +7,7 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
-    console.log("params", ctx.params.slug)
-    const asset = await client.fetch(imageQuery, {slug: ctx.params.slug}) as Asset[]
-    console.log("asset",asset)
+    const asset = await client.fetch(imageQuery, {slug: ctx.params.asset}) as Asset[]
     let coll = {} as Collection
     coll.images = asset[0].images
     let currentImageID = "image-0"
@@ -18,8 +16,6 @@ export const load = async (ctx: {params: RouteParams}) =>{
             currentImageID = 'image-' + idx
         }
     })
-    console.log("coll",coll)
-
 
     return {
         coll, currentImageID
