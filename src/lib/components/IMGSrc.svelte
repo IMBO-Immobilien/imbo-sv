@@ -6,10 +6,11 @@
         width="100%"
         height="auto"
         alt={ alt }
-        on:load={ e => loaded }
+        on:load|once={loaded}
         class="fitinside fadein img"
         loading={ lazy }
-    >
+        >
+        <!-- on:load={ e => loaded } -->
 </div>
 
 <script lang="ts">
@@ -22,7 +23,7 @@ export let dimensions:Dimensions
 export let crop:Crop
 // export let hotspot:Hotspot
 // export let imgAsset:IMG
-export let opacity = "1"
+export let opacity = "0"
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
@@ -49,7 +50,7 @@ const calcCrop = (): string => {
 }
 
 const getURL = ():string => { 
-    if (crop._type) {
+    if (crop?._type) {
         return `${src}?q=${quality}&w=${width}&h=${width}&rect=${calcCrop()}&fit=max&auto=format`
     }
     aspectRatio = dimensions.aspectRatio.toString()
