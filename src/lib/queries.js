@@ -45,7 +45,7 @@ export const assetOverviewQuery = `*[_type == "assets"]{
     },
 }`
 
-export const assetsQuery = `*[_type == "assets" && slug.current == $slug]{
+export const assetQuery = `*[_type == "assets" && slug.current == $slug]{
     ...,
     "flats": flats[] {
         ...,
