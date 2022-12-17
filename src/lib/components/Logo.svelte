@@ -6,7 +6,7 @@
             src={logo.url} 
             loading="lazy"
             width="100%"
-            height="auto"
+            height="100%"
         />
     </a>
 </nav>

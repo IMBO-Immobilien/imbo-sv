@@ -1,29 +1,27 @@
 <div class="img-container">
     <img
+        on:load={ loaded }
+        loading={ lazy }
         src={ getURL() }
-        style="opacity: {opacity}; aspectRatio: {aspectRatio};"
+        style="opacity: {opacity};aspectRatio: {aspectRatio};"
 
         width="100%"
         height="auto"
         alt={ alt }
-        on:load|once={loaded}
-        class="fitinside fadein img"
-        loading={ lazy }
-        >
+        class="fadein img"
+    >
         <!-- on:load={ e => loaded } -->
 </div>
 
 <script lang="ts">
-// interface Style {
-//     [tag: string]: string
-// }
+
 import type { Dimensions, Crop } from '$lib/types'
 export let dimensions:Dimensions 
 // export let copyright:People
 export let crop:Crop
 // export let hotspot:Hotspot
 // export let imgAsset:IMG
-export let opacity = "0"
+export let opacity = "1"
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
@@ -69,17 +67,17 @@ const getURL = ():string => {
     }
     .img {
         position: relative;
-        max-width: 100vw;
-        max-height: 80vh;
+        // max-width: 100vw;
+        // max-height: 80vh;
         object-fit: contain;
-        width: 100%;
-        height: auto;
+        // width: 100%;
+        // height: auto;
     }
     .fadein {
         opacity: 0;
         transition: opacity 1s;
     }
-    .fitinside {
-        object-fit: contain;
-    }
+    // .fitinside {
+    //     object-fit: contain;
+    // }
 </style>

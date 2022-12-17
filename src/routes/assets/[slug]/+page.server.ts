@@ -3,7 +3,7 @@ import { assetQuery } from '$lib/queries'
 import type { Asset } from '$lib/types'
 import type { RouteParams } from './$types'
 
-export const prerender = true
+// export const prerender = true
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{

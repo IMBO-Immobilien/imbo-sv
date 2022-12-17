@@ -8,9 +8,9 @@
         <!-- fit={"inside"} -->
         <div class="img-with-caption">
             <IMGSrc
-                lazy="lazy"
                 dimensions={i.dimensions}
                 width={500}
+                quality={80}
                 src={i.url}
                 alt={i.title}
                 crop={i.crop}

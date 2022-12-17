@@ -1,8 +1,12 @@
 import type { Block, Slug } from '@sanity/types'
-type Locale = string
+// type Locale = string
 export interface LocaleObject  {
     code: string
     iso: string
+}
+
+export interface Style {
+    [tag: string]: string
 }
 
 export interface ViewBox {
