@@ -5,22 +5,27 @@
             class="logo" 
             src={logo.url} 
             loading="lazy"
-            width="100%"
-            height="100%"
-        />
+            on:load={loaded}
+            />
+            <!-- width="100%"
+            height="auto" -->
     </a>
 </nav>
 
 <script lang="ts">
     import type { IMG } from "$lib/types";
     export let logo = <IMG>{}
+
+    const loaded = (e: any) => {
+        console.log("logo loaded", e)
+    }
 </script>
 
 <style lang="scss">
 .logo {
     transform-box: fill-box;
     max-height: 40vh;
-    // height: 400px;
+    height: 400px;
     // width: auto;
     // right: 0;
     transition: height .5s;

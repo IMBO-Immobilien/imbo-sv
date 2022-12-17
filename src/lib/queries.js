@@ -45,6 +45,19 @@ export const assetOverviewQuery = `*[_type == "assets"]{
     },
 }`
 
+export const imageQuery = `*[_type == "assets" && slug.current == $slug]{
+    // ...,
+    "images": outsideImages[] {
+        title,
+        titleEN,
+        slug,
+        "url": image.asset->url,
+        "dimensions": image.asset->metadata.dimensions,
+        author->{name}
+    }
+}`
+
+
 export const assetQuery = `*[_type == "assets" && slug.current == $slug]{
     ...,
     "flats": flats[] {
