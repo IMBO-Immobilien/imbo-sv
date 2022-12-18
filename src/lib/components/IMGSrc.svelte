@@ -15,10 +15,10 @@
 
 <script lang="ts">
 
-import type { Dimensions, Crop } from '$lib/types'
+import type { Dimensions, Crop, People } from '$lib/types'
 export let dimensions:Dimensions 
 // export let copyright:People
-export let crop:Crop
+export let crop = <Crop>{}
 // export let hotspot:Hotspot
 // export let imgAsset:IMG
 export let opacity = "1"
@@ -29,6 +29,7 @@ export let quality = 70
 export let src = ""
 export let alt = ""
 export let lazy = "lazy"
+export let copyright = <People>{}
 
 const loaded = (e: any) => {
     console.log("loaded", e)

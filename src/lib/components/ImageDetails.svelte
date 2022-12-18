@@ -1,64 +1,179 @@
 <div class="image-overlay">
-    <!-- <div 
+    <div 
         id="slider"
         class="swipe"
     >
         <div class="swipe-wrap">
-            <div class="image" v-for="(i, index) in collection.images" :key="'key-'+index">
-                <img-src
-                    :src="i.url"
-                    :quality="90"
-                    :copyright="i.author"
+            {#each collection.images as i, index}
+            <div class="image" id={imageID}>
+                <IMGSrc
+                    src={i.url}
+                    quality={90}
+                    copyright={i.author}
 
-                    :dimensions="i.dimensions"
-                    :imageID="index"
-                    :alt="i.title"
-                    :loading="true"
-                    :displaySize="{ width: '100%', height: '100%' }"
+                    dimensions={i.dimensions}
+                    alt={i.title}
                 />
+                    <!-- loading="true" -->
+                    <!-- imageID={index} -->
+                    <!-- displaySize={ "width": '100%', "height": '100%' } -->
             </div>
-        </div>
-    </div> -->
-    <Swiper class="mySwiper">
-        {#each collection.images as i, idx}
-        <SwiperSlide >{i.title}</SwiperSlide>
-        {/each}
-    </Swiper>
-
-    <!-- <div class="bottom">
-        <h1 class="text-title">
-            <div>{{ getTitle() }} </div>
-        </h1>
-
-        <div class="bottom-align">
-            <div class="image-counter">{{imageIDX + 1 + ' / ' + collection.images.length}}</div>
+            {/each}
         </div>
     </div>
 
-    <span 
-        v-if="imageIDX > 0"
-        class="arrow-container left" 
-        @click="navLeft()"
-    >
-        <Arrow class="ui" dir="left"/>
-    </span>
+    <div class="bottom">
+        <h1 class="text-title">
+            <div>{ getTitle() } </div>
+        </h1>
 
-    <span
-        v-if="imageIDX < collection.images.length - 1"
-        class="arrow-container right" 
-        @click="navRight()"
+        <div class="bottom-align">
+            <div class="image-counter">{imageIDX + 1 + ' / ' + collection.images.length}</div>
+        </div>
+    </div>
+
+    {#if imageIDX > 0 }
+    <span 
+        class="arrow-container left" 
+        on:click={navLeft}
+        on:keydown
     >
-        <Arrow class="ui" dir="right"/>
-    </span> -->
+        <Arrow cl="ui" dir="left"/>
+    </span>
+    {/if}
+    {#if imageIDX < collection.images.length - 1 }
+    <span
+        class="arrow-container right" 
+        on:click={navRight}
+        on:keydown
+    >
+        <Arrow cl="ui" dir="right"/>
+    </span>
+    {/if}
 </div>
 <!-- <div>{JSON.stringify(images)}</div> -->
 
 <script lang="ts">
-    import type { Collection } from "$lib/types"
-    import { Swiper, SwiperSlide } from "swiper/svelte"
+    import type { Collection, IMG } from "$lib/types"
+    import { onMount } from "svelte"
+    import { page } from '$app/stores'
+    import { browserLang } from "$lib/store"
+    import IMGSrc from './IMGSrc.svelte'
+    import Arrow from './Arrow.svelte'
 
-
+    import Swipe from 'swipejs'
 
     export let current = "image-0"
     export let collection:Collection 
+    export let imageID = "" 
+    export let nextImageID = "" 
+    export let imageIDX = 0
+    export let upper = 0
+    export let lower = 0
+    export let image = <IMG>{}
+    export let swiper = <Swipe>{}
+
+    onMount(async() => {
+        swiper = new Swipe(document.getElementById('slider') as HTMLElement, {
+            startSlide: imageIDX,
+            speed: 400,
+            draggable: true,
+            disableScroll: true,
+            stopPropagation: true,
+            callback: index=> {
+                updateIDX(index)
+                let p = $page.params
+                p.img = image.slug.current
+
+                // let r = $router.resolve({
+                //     name: $route.name as string,
+                //     params: p
+                // })
+
+                // window.history.replaceState({}, "", r.href)
+                // this.$nuxt.$emit('replaceState', r.route.params)
+            }
+        })
+    })
+
+    const updateID = (id: string) => {
+        // console.log("id", id)
+        imageID = id
+        imageIDX = parseInt(id.replace("image-", ""), 10)
+        upper = imageIDX + 1
+        lower = imageIDX - 1
+        image = collection.images[imageIDX] || {}
+    }
+        
+    const updateIDX = (idx: number) => {
+        // console.log("idx", idx)
+        imageID = "image-" + idx.toString()
+        imageIDX = idx
+        image = collection.images[idx] || {}
+        // prepare next image
+        nextImageID = "image-" + (idx + 1)
+        let el = document.getElementById(nextImageID) as HTMLImageElement
+        if (el) {
+            el.loading = "eager"
+        }
+    }
+
+    const navLeft = () => {
+        if (imageIDX > 0) {
+            swiper.prev()
+        }
+    }
+
+    const navRight = () => {
+        if (imageIDX < collection.images.length - 1) {
+            swiper.next()
+        }
+    }
+
+    const getTitle = ():string => {
+        // console.log("image", this.image)
+        // return this.image.title
+        // let t = ""
+        switch ($browserLang) {
+            case "de":
+                return image.title
+
+            default:
+                if (image.titleEN){
+                    return image.titleEN
+                }
+                return image.title
+        }
+    }
+
+    const getCopyright = ():string => {
+        let a = ""
+        if (typeof image.author !== "undefined" && image.author !== null) {
+            a = "©"+image.author.name
+        }
+        return a
+    }
+    
+    const back = () => {
+        document.body.style.backgroundColor = '#ffffff'
+        $router.go(-1)
+    }
+
+    const doKeys = (e: KeyboardEvent) => {
+        e.preventDefault()
+        switch (e.key) {
+            case "ArrowLeft":
+                navLeft()
+                break;
+            case "ArrowRight":
+                navRight()
+                break;
+            case "Escape":
+                back()
+                break;
+        
+            default:
+                break;
+        }
+    }
 </script>

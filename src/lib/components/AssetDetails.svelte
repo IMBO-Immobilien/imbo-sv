@@ -1,6 +1,6 @@
 <div class="obj-details">
     <div class="obj-images columns">
-        {#each asset.images as i, idx}
+        {#each asset.images as i}
         <a 
             href={`/assets/${$page.params.asset}/images/${i.slug.current}`}
             class="image-link"
