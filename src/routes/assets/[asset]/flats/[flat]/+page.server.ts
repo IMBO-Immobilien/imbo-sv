@@ -1,5 +1,5 @@
 import client from "$lib/sanityClient"
-import { imageQuery } from '$lib/queries'
+import { flatQuery } from '$lib/queries'
 import type { Asset, Flat } from '$lib/types'
 import type { RouteParams } from './$types'
 
@@ -7,13 +7,12 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
-    const asset = await client.fetch(imageQuery, {slug: ctx.params.asset}) as Asset[]
-    let flat = [] as Flat[]
-
-    flat.forEach((i, idx:number) => {
-        if (i.slug.current === ctx.params.flat) {
-        }
-    })
+    const asset = await client.fetch(flatQuery, {slug: ctx.params.asset}) as Asset[]
+    // let flat = [] as Flat[]
+    console.log("ctx.params.flat",ctx.params.flat)
+    
+    let flat = asset[0].flats.find(i => i.slug.current === ctx.params.flat)
+    console.log("flat",flat)
 
     return {
         flat

@@ -1,6 +1,6 @@
-<div>{flat[0]}</div>
+<div>{flat.descriptionDE}</div>
 
 <script lang="ts">
     import type { Flat } from '$lib/types'
-    export let flat = <Flat[]>{}
+    export let flat = <Flat>{}
 </script>
