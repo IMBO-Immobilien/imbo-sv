@@ -9,6 +9,7 @@
 
     export let data:PageData
     export let { flat } = data
+    console.log("flat", flat)
 
     // export const asset = 
 </script>

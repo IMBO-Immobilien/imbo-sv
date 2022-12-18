@@ -77,29 +77,25 @@ export interface Address {
 }
 
 export interface Site {
-    greetingDE?: Block[]
-    greetingEN?: Block[]
     description?: string
     siteName: string
-    companyName?: Block[]
-    companyAddress?: Address
-    contactEmail?: string
+    companyName: Block[]
+    companyAddress: Address
+    contactEmail: string
 
     impressum?: Block[]
-    about?: {
+    about: {
         management: People[],
         webDesign: People[],
     }
-    copyrightDE?: Block[]
+    copyrightDE: Block[]
     extendedCopyrightDE?: Block[]
-    copyrightEN?: Block[]
+    copyrightEN: Block[]
     extendedCopyrightEN?: Block[]
-    openingHoursDE?: string
-    openingHoursEN?: string
+    openingHoursDE: string
+    openingHoursEN: string
     image?: IMG
-    logo?: IMG
-    alt?: string
-    // alt?: IMG
+    logo: IMG
     opengraph?: Opengraph
     slug?: Slug
 }
