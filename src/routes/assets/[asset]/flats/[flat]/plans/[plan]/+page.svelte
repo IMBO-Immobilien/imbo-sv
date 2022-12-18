@@ -1,4 +1,4 @@
-<ImageDetails collection={collection} />
+<ImageDetails collection={collection}  />
 
 
 <script lang="ts">

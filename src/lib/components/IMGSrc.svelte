@@ -21,7 +21,7 @@
 <script lang="ts">
 
 import type { Dimensions, Crop, People } from '$lib/types'
-export let dimensions:Dimensions 
+export let dimensions = <Dimensions>{} 
 // export let copyright:People
 export let crop = <Crop>{}
 // export let hotspot:Hotspot

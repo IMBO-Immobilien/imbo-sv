@@ -12,7 +12,7 @@ export const load = async (ctx: {params: RouteParams}) =>{
     collection.images = asset[0].images
     collection.currentImageID = "image-0"
     collection.images.forEach((i, idx:number) => {
-        if (i.slug.current === ctx.params.image) {
+        if (i.slug.current === ctx.params.plan) {
             collection.currentImageID = 'image-' + idx
         }
     })

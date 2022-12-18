@@ -2,7 +2,7 @@
 
 
 <script lang="ts">
-    import { page } from '$app/stores'
+    // import { page } from '$app/stores'
     import type { PageData } from './$types'
     import FlatDetails from '$lib/components/FlatDetails.svelte'
     /** @type {import('./$types').PageData} */
