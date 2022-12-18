@@ -5,6 +5,7 @@
     >
         <div class="swipe-wrap">
             {#each collection.images as i, index}
+            {i}
             <div class="image" id={imageID}>
                 <IMGSrc
                     src={i.url}
@@ -63,7 +64,6 @@
 
     import Swipe from 'swipejs'
 
-    export let current = "image-0"
     export let collection:Collection 
     export let imageID = "" 
     export let nextImageID = "" 
@@ -74,6 +74,8 @@
     export let swiper = <Swipe>{}
 
     onMount(async() => {
+        updateID(collection.currentImageID)
+
         swiper = new Swipe(document.getElementById('slider') as HTMLElement, {
             startSlide: imageIDX,
             speed: 400,
@@ -156,7 +158,7 @@
     
     const back = () => {
         document.body.style.backgroundColor = '#ffffff'
-        $router.go(-1)
+        // $router.go(-1)
     }
 
     const doKeys = (e: KeyboardEvent) => {
@@ -177,3 +179,92 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+
+    .swipe {
+        overflow: hidden;
+        visibility: hidden;
+        position: relative;
+    }
+    
+    .swipe-wrap {
+        // overflow: hidden;
+        position: relative;
+        height: 100vh;
+        display: flex;
+    }
+    
+    .swipe-wrap > div {
+        // height: 80vh;
+        position: relative;
+        align-self: center;
+    }
+    
+    .image {
+        // width: 100vw;
+        // height: 100vh;
+        object-fit: contain;
+    }
+    // .type, .text-title {
+    //     // font-weight: bold;
+    // }
+    
+    .date {
+        font-weight: normal;
+    }
+    
+    .caption, .text-title {
+        h1 {
+            font-size: large;
+            // @include font-medium;
+        }
+    }
+    
+    .imgCopyright {
+        color: gray;
+        font-size: small;
+    }
+    
+    .text-header {
+        padding-bottom: 20px;
+    }
+    
+    .text-title {
+        margin-top: auto;
+    }
+    
+    .bottom-align {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    
+    .bottom {
+        display: grid;
+        grid-auto-columns: 1fr 90px;
+        grid-auto-flow: column;
+        position: absolute;
+        right: 45px;
+        left: 45px;
+        bottom: 45px;
+    }
+    
+    .image-counter {
+        position: absolute;
+        text-align: right;
+        width: 100%;
+        font-size: 13px;
+        line-height: 21px;
+        bottom: 0;
+        right: 24px;
+    }
+    
+    .image-overlay {
+        background-color: transparent;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    </style>

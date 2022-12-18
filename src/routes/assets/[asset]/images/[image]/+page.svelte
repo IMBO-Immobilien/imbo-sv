@@ -1,4 +1,4 @@
-<ImageDetails collection={coll} current={currentImageID} />
+<ImageDetails collection={collection} />
 
 
 <script lang="ts">
@@ -8,7 +8,7 @@
     /** @type {import('./$types').PageData} */
 
     export let data:PageData
-    export let { coll, currentImageID } = data
+    export let { collection } = data
 
     // export const asset = 
 </script>

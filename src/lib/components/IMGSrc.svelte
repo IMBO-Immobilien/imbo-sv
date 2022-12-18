@@ -1,14 +1,19 @@
-<div class="img-container">
+<div 
+    class="img-container" 
+    width="100%"
+    height="auto"
+>
+<!-- {dimensions.aspectRatio} -->
     <img
-        on:load={ loaded }
+        on:load|self={ loaded }
         loading={ lazy }
-        src={ getURL() }
-        style="opacity: {opacity};aspectRatio: {aspectRatio};"
-
+        style="aspect-ratio: {dimensions.aspectRatio.toString()};"
+        
         width="100%"
         height="auto"
         alt={ alt }
         class="fadein img"
+        src={ getURL() }
     >
         <!-- on:load={ e => loaded } -->
 </div>
@@ -61,6 +66,7 @@ const getURL = ():string => {
 <style lang="scss">
     .img-container {
         position: relative;
+        display: block;
     }
     .caption {
         position: absolute;
