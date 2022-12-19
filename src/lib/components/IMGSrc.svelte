@@ -3,7 +3,6 @@
     width="100%"
     height="auto"
 >
-<!-- {dimensions.aspectRatio} -->
     <img
         on:load|self={ loaded }
         loading={ lazy }

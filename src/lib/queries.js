@@ -49,6 +49,13 @@ export const flatQuery = `*[_type == "assets" && slug.current == $slug]{
     ...,
     "flats": flats[] {
         ...,
+        "images": images[] {
+            title,
+            titleEN,
+            slug,
+            "url": image.asset->url,
+            "dimensions": image.asset->metadata.dimensions
+        },
         "plans": floorPlans[] {
             title,
             titleEN,
