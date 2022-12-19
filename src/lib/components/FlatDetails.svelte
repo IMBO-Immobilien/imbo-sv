@@ -50,6 +50,7 @@
                 <IMGSrc
                     width={600}
                     dimensions={i.dimensions}
+                    copyright={i.author}
                     src={i.url}
                     alt={i.title}
                 />

@@ -1,45 +1,43 @@
 <div 
     class="img-container" 
-    width="100%"
-    height="auto"
 >
     <img
-        on:load|self={ loaded }
-        loading={ lazy }
         style="aspect-ratio: {dimensions.aspectRatio.toString()};"
-        
+        src={ getURL() }
+        alt={ alt }
+        loading="lazy"
         width="100%"
         height="auto"
-        alt={ alt }
-        class="fadein img"
-        src={ getURL() }
+        class:loaded 
+        bind:this={ thisImage }
     >
-        <!-- on:load={ e => loaded } -->
+    {#if copyright.name}
+    <div class="copyright">{ copyright.name }</div>
+    {/if}
 </div>
-
 <script lang="ts">
-
+import { onMount } from 'svelte'
 import type { Dimensions, Crop, People } from '$lib/types'
 export let dimensions = <Dimensions>{} 
-// export let copyright:People
+export let copyright = <People>{}
 export let crop = <Crop>{}
 // export let hotspot:Hotspot
 // export let imgAsset:IMG
-export let opacity = "1"
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
 export let quality = 70
 export let src = ""
 export let alt = ""
-export let lazy = "lazy"
-export let copyright = <People>{}
+export let thisImage = <HTMLImageElement>{}
 
-const loaded = (e: any) => {
-    console.log("loaded", e)
-    let t = e.target as HTMLElement
-    t.style.opacity = "1"
-}
+export let loaded = false
+
+onMount(() => {
+    thisImage.onload = () => {
+        loaded = true
+    }
+}) 
 
 const calcCrop = (): string => {
     let left = Math.floor(dimensions.width * crop.left)
@@ -59,31 +57,44 @@ const getURL = ():string => {
     aspectRatio = dimensions.aspectRatio.toString()
     return `${src}?q=${quality}&w=${width}&h=${width}&fit=max&auto=format`
 }
-
 </script>
 
 <style lang="scss">
     .img-container {
         position: relative;
-        display: block;
+        // display: block;
     }
-    .caption {
-        position: absolute;
-        bottom: -10px;
-    }
-    .img {
-        position: relative;
-        // max-width: 100vw;
-        // max-height: 80vh;
-        object-fit: contain;
-        // width: 100%;
-        // height: auto;
-    }
-    .fadein {
-        opacity: 0;
-        transition: opacity 1s;
-    }
-    // .fitinside {
+
+    // .caption {
+    //     position: absolute;
+    //     bottom: -10px;
+    // }
+
+    // .img {
+    //     position: relative;
+    //     // opacity: 0;
     //     object-fit: contain;
     // }
+
+    // .fadein {
+    //     // opacity: 0;
+    //     // transition: opacity 1s;
+    // }
+
+    img {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+
+    img.loaded {
+        opacity: 1;
+    }
+
+    .copyright {
+        position: absolute;
+        top: 0;
+        left: -12px;
+        writing-mode: vertical-lr;
+        font-size: 10px;
+    }
 </style>

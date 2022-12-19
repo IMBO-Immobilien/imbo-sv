@@ -7,7 +7,7 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
-    console.log("params", ctx.params.asset)
+    console.log("assetQuery", assetQuery)
     const assetFetch = await client.fetch(assetQuery, {slug: ctx.params.asset}) as Asset[]
 
     return {

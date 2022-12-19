@@ -9,6 +9,7 @@
         <div class="img-with-caption">
             <IMGSrc
                 dimensions={i.dimensions}
+                copyright={i.author}
                 width={500}
                 quality={80}
                 src={i.url}
