@@ -20,6 +20,7 @@
     import { siteData, t } from '$lib/store'
 
     // const site = get(siteData)
+    $: console.log("site", $siteData)
 </script>
 
 <style lang="scss">
