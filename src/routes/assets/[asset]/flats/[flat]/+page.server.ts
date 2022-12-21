@@ -5,12 +5,11 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
-    if (!ctx.params.asset) {
-        console.log("asset undefined [asset]")
-    }
-
     try {
-        const { flat } = await client.fetch(flatQuery, {asset: ctx.params.asset, flat: ctx.params.flat}) as Asset
+        const { flat } = await client.fetch(flatQuery, {
+            asset: ctx.params.asset, 
+            flat: ctx.params.flat
+        }) as Asset
     
         return {
             flat

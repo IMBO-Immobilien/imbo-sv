@@ -17,7 +17,6 @@
 
 <script lang="ts">
     const toggleLocale = (l: string) => {
-        console.log("l",l)
         browserLang.set(l)
     }
 

@@ -8,5 +8,4 @@
     export let data:PageData
     export const { collection } = data
 
-    console.log("plan collection", collection)
 </script>

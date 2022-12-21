@@ -7,12 +7,11 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: { params: RouteParams }) =>{
-    if (!ctx.params.asset) {
-        console.log("asset undefined [asset]")
-    }
-    // console.log("params", ctx.params)
     try {
-        const asset = await client.fetch(flatPlanQuery, { asset: ctx.params.asset, flat: ctx.params.flat }) as Asset
+        const asset = await client.fetch(flatPlanQuery, { 
+            asset: ctx.params.asset, 
+            flat: ctx.params.flat 
+        }) as Asset
         let collection = <Collection>{}
         collection.images = asset.flat.images
         collection.currentImageID = "image-0"
@@ -21,10 +20,9 @@ export const load = async (ctx: { params: RouteParams }) =>{
                 collection.currentImageID = 'image-' + idx
             }
         })
-        
-            return {
-                collection
-            }
+        return {
+            collection
+        }
     } catch (error) {
         console.error(error)
     }

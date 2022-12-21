@@ -86,7 +86,6 @@
     })
 
     onMount(async() => {
-        console.log("img details", collection.images)
         updateID(collection.currentImageID)
 
         if (browser){ 
@@ -121,7 +120,6 @@
     })
 
     const updateID = (id: string) => {
-        // console.log("id", id)
         imageID = id
         imageIDX = parseInt(id.replace("image-", ""), 10)
         upper = imageIDX + 1
@@ -130,7 +128,6 @@
     }
         
     const updateIDX = (idx: number) => {
-        // console.log("idx", idx)
         imageID = "image-" + idx.toString()
         imageIDX = idx
         image = collection.images[idx] || {}
@@ -155,9 +152,6 @@
     }
 
     const getTitle = ():string => {
-        // console.log("image", this.image)
-        // return this.image.title
-        // let t = ""
         switch ($browserLang) {
             case "de":
                 return image.title
@@ -181,7 +175,6 @@
     
     const back = (defaultRoute = '/') => {
         const ref = document.referrer
-        console.log("ref",ref)
         // document.body.style.backgroundColor = '#ffffff'
         goto(ref.length > 0 ? ref : defaultRoute)
     }

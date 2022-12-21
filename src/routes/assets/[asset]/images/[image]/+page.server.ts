@@ -7,15 +7,12 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
-    if (!ctx.params.asset) {
-        console.log("asset undefined [asset]")
-    }
     try {
-        const asset = await client.fetch(assetImageQuery, {asset: ctx.params.asset}) as Asset
+        const asset = await client.fetch(assetImageQuery, { asset: ctx.params.asset }) as Asset
         let collection = <Collection>{}
         collection.images = asset.images
         collection.currentImageID = "image-0"
-        collection.images.forEach((i, idx:number) => {
+        collection.images.forEach((i, idx: number) => {
             if (i.slug.current === ctx.params.image) {
                 collection.currentImageID = 'image-' + idx
             }

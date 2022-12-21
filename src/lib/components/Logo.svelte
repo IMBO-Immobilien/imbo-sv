@@ -5,8 +5,8 @@
             class="logo" 
             src={logo.url} 
             loading="lazy"
-            on:load={loaded}
             />
+            <!-- on:load={loaded} -->
             <!-- width="100%"
             height="auto" -->
     </a>
@@ -16,9 +16,9 @@
     import type { IMG } from "$lib/types";
     export let logo = <IMG>{}
 
-    const loaded = (e: any) => {
-        console.log("logo loaded", e)
-    }
+    // const loaded = (e: any) => {
+    //     console.log("logo loaded", e)
+    // }
 </script>
 
 <style lang="scss">
