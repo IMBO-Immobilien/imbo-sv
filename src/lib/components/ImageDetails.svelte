@@ -177,10 +177,11 @@
         return a
     }
     
-    const back = () => {
-        document.body.style.backgroundColor = '#ffffff'
-        goto(-1)
-        // $router.go(-1)
+    const back = (defaultRoute = '/') => {
+        const ref = document.referrer
+        console.log("ref",ref)
+        // document.body.style.backgroundColor = '#ffffff'
+        goto(ref.length > 0 ? ref : defaultRoute)
     }
 
     const doKeys = (e: KeyboardEvent) => {
