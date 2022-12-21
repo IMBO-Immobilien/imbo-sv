@@ -1,6 +1,10 @@
-import  '$lib/style/global.scss';
+// import  '$lib/style/global.scss';
+// import { init } from '$lib/store'
+
+// init
+
+// import { siteDataQuery } from '$lib/queries'
 // import client from "$lib/sanityClient"
-// import { siteData } from '$lib/queries'
 // import type { Site } from '$lib/types'
 
 // export let get = async () => {
@@ -13,3 +17,6 @@ import  '$lib/style/global.scss';
 //     }
 // }
 
+export {
+    
+}

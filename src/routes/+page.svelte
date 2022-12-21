@@ -3,7 +3,7 @@
         <div class="front-grid">
             <!-- { JSON.stringify(site.companyName) } -->
             <div class="company">
-                <Content blocks={ site.companyName } />
+                <Content blocks={ $siteData.companyName } />
             </div>
             <!-- { JSON.stringify(site) } -->
             <!-- <Content class="welcome" :blocks="greet()" /> -->
@@ -11,7 +11,7 @@
         </div>
     </h1>
     <div class="">
-        <Overview assets={assets} />
+        <Overview />
     </div>
 </div>
 
@@ -20,12 +20,13 @@
 import Content from '$lib/components/Content.svelte'
 import Overview from '$lib/components/Overview.svelte'
 import type { PageData } from './$types'
-/** @type {import('./$types').PageData} */
+import { siteData } from '$lib/store'
+// /** @type {import('./$types').PageData} */
 
-export let data:PageData
-let { site, assets } = data
+// export let data:PageData
+// let { site, assets } = data
 
-$: ({ site, assets } = data)
+// $: ({ site, assets } = data)
 // $: console.log("site",site)
 // import { site } from '../lib/store'
   

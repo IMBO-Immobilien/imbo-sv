@@ -1,6 +1,5 @@
 <div>
-    <!-- <h2>Unsere Angebote</h2> -->
-    {#each assets as a}
+    {#each $assetData as a}
     <a 
         class="asset-overview" 
         href="{'/assets/' + a.slug.current}"
@@ -35,7 +34,7 @@
     import type { Asset, Block } from '$lib/types'
     import Content from './Content.svelte'
     import IMGSrc from './IMGSrc.svelte'
-    import { browserLang } from '$lib/store'
+    import { browserLang, assetData } from '$lib/store'
 
     const getBlocks = (a: Asset, k: string):Block[] => {
             let keyDE = k + "DE"
@@ -69,7 +68,7 @@
         }
     }
 
-    export let assets:Asset[] = []
+    // export let assets:Asset[] = []
 </script>
 
 <style lang="scss">
