@@ -76,9 +76,10 @@ const getURL = ():string => {
 
     .copyright {
         position: absolute;
-        top: 0;
-        left: -12px;
+        bottom: 8px;
+        right: -12px;
         writing-mode: vertical-lr;
         font-size: 10px;
+        color: gray;
     }
 </style>

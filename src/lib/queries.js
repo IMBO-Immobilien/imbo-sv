@@ -13,12 +13,8 @@ export const siteDataQuery = `*[_type == "site"][0]{
         }
     },
     "about": about {
-        management[]->{
-            name
-        },
-        webDesign[]->{
-            name
-        }
+        management[]->{ name },
+        webDesign[]->{ name }
     }
 }`
 
@@ -42,7 +38,7 @@ export const assetOverviewQuery = `*[_type == "assets"]{
         alt,
         "url": asset->url,
         "dimensions": asset->metadata.dimensions,
-        author->{name}
+        author->{ name }
     },
 }`
 
@@ -56,7 +52,7 @@ export const flatQuery = `*[_type == "assets" && slug.current == $asset][0]{
             slug,
             "url": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            author->{name}
+            author->{ name }
         },
         "plans": floorPlans[] {
             title,
@@ -64,7 +60,7 @@ export const flatQuery = `*[_type == "assets" && slug.current == $asset][0]{
             slug,
             "url": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            author->{name}
+            author->{ name }
         }
     },
 }`
@@ -78,7 +74,7 @@ export const assetImageQuery = `*[_type == "assets" && slug.current == $asset][0
         slug,
         "url": image.asset->url,
         "dimensions": image.asset->metadata.dimensions,
-        author->{name}
+        author->{ name }
     }
 }`
 
@@ -93,7 +89,7 @@ export const flatImageQuery = `*[_type == "assets" && slug.current == $asset][0]
             slug,
             "url": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            author->{name}
+            author->{ name }
         }
     }
 }`
@@ -108,7 +104,7 @@ export const flatPlanQuery = `*[_type == "assets" && slug.current == $asset][0]{
             slug,
             "url": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            author->{name}
+            author->{ name }
         }
     }
 }`
@@ -124,7 +120,7 @@ export const assetQuery = `*[_type == "assets" && slug.current == $asset][0]{
             slug,
             "url": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            author->{name}
+            author->{ name }
         }
     },
 
@@ -206,6 +202,7 @@ export const assetQuery = `*[_type == "assets" && slug.current == $asset][0]{
         titleEN,
         slug,
         "url": image.asset->url,
-        "dimensions": image.asset->metadata.dimensions
+        "dimensions": image.asset->metadata.dimensions,
+        author->{ name }
     },
 }`

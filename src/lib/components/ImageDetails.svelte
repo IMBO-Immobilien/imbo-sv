@@ -107,6 +107,8 @@
                 let p = $page.params
                 p.img = image.slug.current
 
+                // goto($page.route)
+
                 // let r = $router.resolve({
                 //     name: $route.name as string,
                 //     params: p
@@ -214,20 +216,26 @@
     .swipe-wrap {
         // overflow: hidden;
         position: relative;
-        height: 100vh;
+        // height: 100vh;
+        // width: 100vw;
         display: flex;
     }
     
     .swipe-wrap > div {
-        // height: 80vh;
+        // height: 40vh;
         position: relative;
         align-self: center;
     }
     
     .image {
-        // max-width: 100vw;
-        // max-height: 100vh;
+        position: relative;
+        // width: 100vw;
+        // height: 100vh;
         object-fit: contain;
+        img {
+            width: 100vw;
+            height: 100vh;
+        }
     }
     // .type, .text-title {
     //     // font-weight: bold;
