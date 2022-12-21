@@ -1,6 +1,5 @@
 <script lang="ts">
-import type { Asset } from '../types'
-export let assets = <Asset[]>[]
+import  { assetData } from '$lib/store'
 </script>
 
 <div class="menu-container">
@@ -9,12 +8,12 @@ export let assets = <Asset[]>[]
         <!-- v-if="o.slug.current" -->
         <!-- v-for="o in assets" 
         :key="o.slug.current"  -->
-        {#each assets as o}
+        <!-- {#each $assetData as o}
             <a 
                 href="{o.slug.current}"
                 class="menu-link" 
             >{o.menuName}</a>
-        {/each}
+        {/each} -->
             <!-- :to="{name: 'assets-asset', params: { asset: o.slug.current }}" -->
     </div>
 </div>

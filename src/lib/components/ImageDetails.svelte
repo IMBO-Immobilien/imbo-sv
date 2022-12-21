@@ -29,7 +29,7 @@
         </h1>
 
         <div class="bottom-align">
-            <div class="image-counter">{imageIDX + 1 + ' / ' + collection.images.length}</div>
+            <div class="image-counter">{imageIDX + 1 + ' / ' + collection?.images?.length}</div>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
         <Arrow cl="ui" dir="left"/>
     </span>
     {/if}
-    {#if imageIDX < collection.images.length - 1 }
+    {#if imageIDX < collection?.images?.length - 1 }
     <span
         class="arrow-container right" 
         on:click={navRight}
@@ -127,7 +127,7 @@
     }
 
     const navRight = () => {
-        if (imageIDX < collection.images.length - 1) {
+        if (imageIDX < collection?.images?.length - 1) {
             swiper.next()
         }
     }

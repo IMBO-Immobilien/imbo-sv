@@ -1,15 +1,14 @@
 <div class="wrapper">
-    <div class="head"><Logo logo={$siteData.logo} /></div>
+    <div class="head"><Logo logo={ $siteData.logo } /></div>
     <div class="side-bar"><Sidebar /></div>
     <div class="main"><slot /></div>
-    <div class="copyright"><Copyright site={$siteData} /></div>
+    <div class="copyright"><Copyright site={ $siteData } /></div>
     <!-- { version }
     { browser } -->
 </div>
 
 
-<script type="module" lang=ts>
-    export const prerender = true
+<script lang=ts>
     import Logo from '$lib/components/Logo.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
     import Copyright from '$lib/components/Copyright.svelte'

@@ -1,19 +1,23 @@
 <div class="about-container">
+    {#await $siteData}
+        <div>waiting</div>
+    {:then sd} 
+
     <div class="about">
         <div class="title">Management</div>
-        <!-- <div class="title">{JSON.stringify(t('management'))}</div> -->
         <div class="people">
-            {#each $siteData?.about?.management as p}
+            {#each sd?.about?.management as p}
                 <div>{p.name}</div>
             {/each}
         </div>
         <div class="title">Web Design</div>
         <div class="people">
-            {#each $siteData?.about?.webDesign as p}
+            {#each sd?.about?.webDesign as p}
                 <div>{p.name}</div>
             {/each}
         </div>
     </div>
+    {/await}
 </div>
 
 <script lang="ts">
