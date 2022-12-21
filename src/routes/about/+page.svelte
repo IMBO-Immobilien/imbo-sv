@@ -1,25 +1,27 @@
 <div class="about-container">
-    {#await $siteData}
+    { #await $siteData.about }
 
     <div>waiting</div>
 
-    {:then sd} 
+    { :then abt } 
 
+    {#if abt}
     <div class="about">
         <div class="title">Management</div>
         <div class="people">
-            {#each sd?.about?.management as p}
-                <div>{p.name}</div>
-            {/each}
+            { #each abt.management as p }
+                <div>{ p.name }</div>
+            { /each }
         </div>
         <div class="title">Web Design</div>
         <div class="people">
-            {#each sd?.about?.webDesign as p}
-                <div>{p.name}</div>
-            {/each}
+            { #each abt.webDesign as p }
+                <div>{ p.name }</div>
+            { /each }
         </div>
     </div>
-    {/await}
+    {/if}
+    { /await }
 </div>
 
 <script lang="ts">
