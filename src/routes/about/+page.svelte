@@ -1,14 +1,15 @@
 <div class="about-container">
     <div class="about">
-        <div class="title">{JSON.stringify(t('management'))}</div>
+        <div class="title">Management</div>
+        <!-- <div class="title">{JSON.stringify(t('management'))}</div> -->
         <div class="people">
-            {#each $siteData.about.management as p}
+            {#each $siteData?.about?.management as p}
                 <div>{p.name}</div>
             {/each}
         </div>
         <div class="title">Web Design</div>
         <div class="people">
-            {#each $siteData.about.webDesign as p}
+            {#each $siteData?.about?.webDesign as p}
                 <div>{p.name}</div>
             {/each}
         </div>
@@ -16,11 +17,7 @@
 </div>
 
 <script lang="ts">
-    // import { get } from 'svelte/store'
-    import { siteData, t } from '$lib/store'
-
-    // const site = get(siteData)
-    $: console.log("site", $siteData)
+    import { siteData } from '$lib/store'
 </script>
 
 <style lang="scss">

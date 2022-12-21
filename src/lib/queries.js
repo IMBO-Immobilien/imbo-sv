@@ -68,6 +68,7 @@ export const flatQuery = `*[_type == "assets" && slug.current == $slug]{
 
 export const imageQuery = `*[_type == "assets" && slug.current == $slug]{
     // ...,
+    slug,
     "images": outsideImages[] {
         title,
         titleEN,
