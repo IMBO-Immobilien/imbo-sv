@@ -1,15 +1,14 @@
 <div id="content" class="front-container">
     <h1 class="presentation">
         <div class="front-grid">
-            <!-- { JSON.stringify(site.companyName) } -->
+
             <div class="company">
                 <Content blocks={ $siteData.companyName } />
             </div>
-            <!-- { JSON.stringify(site) } -->
-            <!-- <Content class="welcome" :blocks="greet()" /> -->
-            <!-- <Content class="company" :blocks="site.companyName" /> -->
+
         </div>
     </h1>
+
     <div class="">
         <Overview />
     </div>
@@ -19,17 +18,7 @@
 <script lang=ts>
 import Content from '$lib/components/Content.svelte'
 import Overview from '$lib/components/Overview.svelte'
-import type { PageData } from './$types'
 import { siteData } from '$lib/store'
-// /** @type {import('./$types').PageData} */
-
-// export let data:PageData
-// let { site, assets } = data
-
-// $: ({ site, assets } = data)
-// $: console.log("site",site)
-// import { site } from '../lib/store'
-  
 </script>
 
 <style lang="scss">
@@ -37,10 +26,6 @@ import { siteData } from '$lib/store'
         // height: 20vh;
         flex: 1;
     }
-
-    // p {
-    //         margin: 0;
-    // }
 
     .front-container {
         position: relative;
@@ -50,24 +35,6 @@ import { siteData } from '$lib/store'
         margin-right: auto;
     }
 
-    // .image-container {
-    //     // transition: opacity 1s;
-    //     // visibility: hidden;
-    //     // opacity: 0;
-    //     // max-height: 45vw;
-    //     // max-width: 100vh;
-    //     // width: 80vw;
-    //     height: 65vh;
-    //     // flex: 2;
-    //     // @include fadein;
-    // }
-
-    // .front-grid {
-    //     display: grid;
-    //     grid-template-columns: 150px 2fr;
-    //     grid-template-areas: "thumb text";
-    //     gap: var(--gap-rel);
-    // }
     .presentation {
         position: relative;
         display: flex;
@@ -80,32 +47,17 @@ import { siteData } from '$lib/store'
 
     
     .welcome {
-        // p {
-        //     margin: 0;
-        //     margin-block-start: 0!important;
-        //     margin-block-end: 0!important;
-        // }
-        // display: inline;
-        // flex: 0;
-        // display: block;
         grid-area: text;
         font-size:32px;
         line-height:0px;
     }
+
     .company {
         overflow: visible;
         grid-area: text;
         
         white-space: nowrap;
-        // p {
-        //     margin-block-start: 0!important;
-        //     margin-block-end: 0!important;
-        //     margin-top: 0;
-        // //     margin-block-start: 0;
-        // //     margin-block-end: 0;
-        // }
-        // flex: 0;
-        // display: inline;
+
         font-size:50px;
         line-height:50px;
     }
@@ -122,7 +74,6 @@ import { siteData } from '$lib/store'
     @media only screen and (orientation: portrait) and (max-width: 600px) {
         .image-container {
             position: relative;
-            // height: 60%;
             width: 100%;
         }
 
@@ -143,12 +94,6 @@ import { siteData } from '$lib/store'
     }
 
     @media only screen and (orientation: landscape) and (max-width: 700px) {
-        // .image-container {
-        //     width: 70%;
-        // }
 
-        // .welcome {
-        //     // font-size: 14px;
-        // }
     }
 </style>

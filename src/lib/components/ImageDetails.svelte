@@ -4,8 +4,8 @@
         class="swipe"
     >
         <div class="swipe-wrap">
-            {#each collection.images as i, index}
-            {i}
+            {#each collection.images as i}
+
             <div class="image" id={imageID}>
                 <IMGSrc
                     src={i.url}
@@ -36,16 +36,17 @@
     {#if imageIDX > 0 }
     <span 
         class="arrow-container left" 
-        on:click={navLeft}
+        on:click={ navLeft }
         on:keydown
     >
         <Arrow cl="ui" dir="left"/>
     </span>
     {/if}
+
     {#if imageIDX < collection?.images?.length - 1 }
     <span
         class="arrow-container right" 
-        on:click={navRight}
+        on:click={ navRight }
         on:keydown
     >
         <Arrow cl="ui" dir="right"/>
@@ -56,9 +57,12 @@
 
 <script lang="ts">
     import type { Collection, IMG } from "$lib/types"
-    import { onMount } from "svelte"
+    import { onMount, onDestroy } from "svelte"
+    import { browser } from '$app/environment'
     import { page } from '$app/stores'
     import { browserLang } from "$lib/store"
+    import { goto } from '$app/navigation'
+
     import IMGSrc from './IMGSrc.svelte'
     import Arrow from './Arrow.svelte'
 
@@ -72,9 +76,25 @@
     export let lower = 0
     export let image = <IMG>{}
     export let swiper = <Swipe>{}
+    let keyListener = false
+
+    onDestroy(() => {
+        if (keyListener) {
+            document.removeEventListener("keyup", doKeys)
+            keyListener = false
+        }
+    })
 
     onMount(async() => {
+        console.log("img details", collection.images)
         updateID(collection.currentImageID)
+
+        if (browser){ 
+            if (!keyListener) {
+                document.addEventListener("keyup", doKeys)
+                keyListener = true
+            }
+        }
 
         swiper = new Swipe(document.getElementById('slider') as HTMLElement, {
             startSlide: imageIDX,
@@ -151,13 +171,15 @@
     const getCopyright = ():string => {
         let a = ""
         if (typeof image.author !== "undefined" && image.author !== null) {
-            a = "©"+image.author.name
+            a = "©"+image.author
+            // a = "©"+image.author.name
         }
         return a
     }
     
     const back = () => {
         document.body.style.backgroundColor = '#ffffff'
+        goto(-1)
         // $router.go(-1)
     }
 
@@ -202,8 +224,8 @@
     }
     
     .image {
-        // width: 100vw;
-        // height: 100vh;
+        // max-width: 100vw;
+        // max-height: 100vh;
         object-fit: contain;
     }
     // .type, .text-title {

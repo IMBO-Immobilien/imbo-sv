@@ -12,3 +12,5 @@ export const load = async () =>{
         site: data
     }
 }
+
+export const prerender = true

@@ -2,7 +2,7 @@
     class="img-container" 
 >
     <img
-        style="aspect-ratio: {dimensions.aspectRatio.toString()};"
+        style="aspect-ratio: { dimensions.aspectRatio.toString() };"
         src={ getURL() }
         alt={ alt }
         loading="lazy"
@@ -11,7 +11,8 @@
         class:loaded 
         bind:this={ thisImage }
     >
-    {#if copyright.name}
+
+    {#if copyright?.name}
     <div class="copyright">{ copyright.name }</div>
     {/if}
 </div>
@@ -21,8 +22,7 @@ import type { Dimensions, Crop, People } from '$lib/types'
 export let dimensions = <Dimensions>{} 
 export let copyright = <People>{}
 export let crop = <Crop>{}
-// export let hotspot:Hotspot
-// export let imgAsset:IMG
+
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
@@ -52,10 +52,10 @@ const calcCrop = (): string => {
 
 const getURL = ():string => { 
     if (crop?._type) {
-        return `${src}?q=${quality}&w=${width}&h=${width}&rect=${calcCrop()}&fit=max&auto=format`
+        return `${ src }?q=${ quality }&w=${ width }&h=${ width }&rect=${ calcCrop() }&fit=max&auto=format`
     }
     aspectRatio = dimensions.aspectRatio.toString()
-    return `${src}?q=${quality}&w=${width}&h=${width}&fit=max&auto=format`
+    return `${ src }?q=${ quality }&w=${ width }&h=${ width }&fit=max&auto=format`
 }
 </script>
 
@@ -64,22 +64,6 @@ const getURL = ():string => {
         position: relative;
         // display: block;
     }
-
-    // .caption {
-    //     position: absolute;
-    //     bottom: -10px;
-    // }
-
-    // .img {
-    //     position: relative;
-    //     // opacity: 0;
-    //     object-fit: contain;
-    // }
-
-    // .fadein {
-    //     // opacity: 0;
-    //     // transition: opacity 1s;
-    // }
 
     img {
         opacity: 0;

@@ -1,1 +1,1 @@
-import  '$lib/style/global.scss';
+import  './global.scss';

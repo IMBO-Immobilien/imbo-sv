@@ -8,13 +8,13 @@ const config = {
 		host: true,
 		strictPort:false,
 	},
-	// css: {
-	// 	preprocessorOptions: {
-	// 		scss: {
-	// 			additionalData: '@use "./lib/style/global.scss";'
-	// 		}
-	// 	}
-	// }
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: '@use "$lib/style/global.scss";'
+			}
+		}
+	}
 }
 
 export default config

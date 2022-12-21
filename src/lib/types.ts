@@ -167,6 +167,7 @@ export interface Asset {
     outsideImages: IMG[]
     overviewImage: IMG
     flats: Flat[]
+    flat: Flat
     form: Download
     menuName: string
     slug: Slug

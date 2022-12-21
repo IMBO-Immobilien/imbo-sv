@@ -1,6 +1,8 @@
 <div class="about-container">
     {#await $siteData}
-        <div>waiting</div>
+
+    <div>waiting</div>
+
     {:then sd} 
 
     <div class="about">
@@ -30,18 +32,22 @@
         padding: 0;
         margin: 0;
     }
+
     .about {
         margin: auto;
         width: 30vw;
     }
+
     .about-container {
         padding-top: 20vh;
         width: 90vw;
     }
+
     .people {
         padding-bottom: var(--gap);
         font-size: 24px;
     }
+
     .title {
         // margin:auto;
         padding-bottom: var(--gap);

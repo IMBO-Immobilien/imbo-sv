@@ -27,8 +27,8 @@ export const t = (word: string) => derived([translations, browserLang], ([$tr, $
 })
 
 const getSiteData = async() => {
-    let s = await client.fetch(siteDataQuery) as Site[]
-    siteData.set(s[0])
+    let s = await client.fetch(siteDataQuery) as Site
+    siteData.set(s)
 
     // console.log("site", siteData)
 }
