@@ -49,27 +49,19 @@
     bottom: var(--gap);
 }
 
-.crumbs {
-    position: fixed;
-    left: var(--gap);
-
-    white-space: nowrap;
-    overflow: visible;
-}
-
-.background {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: fixed;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 1s;
-}
+// .background {
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     bottom: 0;
+//     background: fixed;
+//     background-repeat: no-repeat;
+//     background-position: 50% 0;
+//     background-size: cover;
+//     opacity: 0;
+//     transition: opacity 1s;
+// }
 
 .wrapper {
     width: calc(100vw - var(--gap) * 2);
@@ -113,11 +105,6 @@
     .head {
         height: 95vh;
         overflow-x: visible;
-    }
-
-    .crumbs {
-        // top: 2px;
-        left: 10px;
     }
 
     .copyright {

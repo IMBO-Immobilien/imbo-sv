@@ -9,6 +9,16 @@ export interface Style {
     [tag: string]: string
 }
 
+interface trans {
+    [key: string]: string
+}
+
+export interface Translations {
+    [key: string]: trans
+    en: trans
+    de: trans
+}
+
 export interface ViewBox {
     x: number
     y: number
