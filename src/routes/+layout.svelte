@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="head"><Logo logo={ $siteData.logo } /></div>
+    <div class="head"><Logo /></div>
     <div class="side-bar"><Sidebar /></div>
     <div class="main"><slot /></div>
     <div class="copyright"><Copyright site={ $siteData } /></div>

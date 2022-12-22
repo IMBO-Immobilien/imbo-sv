@@ -11,7 +11,7 @@ import  { assetData } from '$lib/store'
         {#if Array.isArray($assetData)}
         {#each $assetData as o}
             <a 
-                href="{o.slug.current}"
+                href={`/assets/${o.slug.current}`}
                 class="menu-link" 
             >{o.menuName}</a>
         {/each}
