@@ -4,8 +4,8 @@
             aria-label={ l.iso }
             tabindex={idx}
             role="button"
-            class="lang-item { langClass(l.code) }"
-            on:click={ () => toggleLocale(l.iso) }
+            class="lang-item { active == l.code ? 'is-active' : '' }"
+            on:click={ () => switchLocale(l.code) }
             on:keydown
         >
             {l.iso}
@@ -16,15 +16,24 @@
 
 
 <script lang="ts">
-    const toggleLocale = (l: string) => {
+    import { locales, browserLang, browserLangISO } from '$lib/store'
+    let active = "en-US"
+
+    const switchLocale = (l: string) => {
+        // console.log("setting locale", l)
+        active = l
         browserLang.set(l)
+        console.log("set locale code", $browserLang)
+        console.log("locale iso", $browserLangISO)
     }
 
-    const langClass = (l: string):string => {
-        return l === $browserLang ? "is-active" : ""
-    }
+    // const langClass = (l: string) => {
+    //     console.log("locale code", $browserLang, l)
+    //     // return l === $browserLang ? "is-active" : ""
+    // }
 
-    import { locales, browserLang } from '$lib/store'
+    $: active
+
 </script>
 
 <style lang="scss" >
@@ -39,7 +48,8 @@
     
         &:hover:not(.is-active) {
             cursor: pointer;
-            font-weight: bold;
+            color: black;
+            // font-weight: bold;
         }
     
         &:not(:first-child) {

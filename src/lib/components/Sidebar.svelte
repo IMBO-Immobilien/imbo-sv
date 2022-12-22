@@ -12,7 +12,7 @@
             </div>
             <a class="menu-link" href="/contact">Kontakt</a>
             <a class="menu-link" href="/about">Impressum</a>
-            <a class="menu-link" href="/assets">Overview</a>
+            <!-- <a class="menu-link" href="/assets">Overview</a> -->
         </div>
     </div>
 </nav>
