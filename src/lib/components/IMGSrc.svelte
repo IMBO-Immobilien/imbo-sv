@@ -10,7 +10,9 @@
     >
 
     {#if copyright?.name}
-    <div class="copyright">{ copyright.name }</div>
+    <div class="copyright">
+        { copyright.name }
+    </div>
     {/if}
 </div>
 <script lang="ts">
@@ -82,5 +84,10 @@ const getURL = ():string => {
         writing-mode: vertical-lr;
         font-size: 10px;
         color: gray;
+        // margin: 0;
+        // padding: 0;
+        &::before{
+            content: "©";
+        }
     }
 </style>

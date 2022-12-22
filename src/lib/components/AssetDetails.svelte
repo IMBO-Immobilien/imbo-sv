@@ -1,5 +1,6 @@
 <div class="obj-details">
     <div class="obj-images columns">
+        {#if Array.isArray(asset.images)}
         {#each asset.images as i}
         <a 
             href={`/assets/${$page.params.asset}/images/${i.slug.current}`}
@@ -19,6 +20,7 @@
         </div>
         </a>
         {/each}
+        {/if}
     </div>
 
     <div class="text-container">
@@ -28,6 +30,7 @@
         </div>
 
         <div class="obj-flats">
+            {#if Array.isArray(asset.flats)}
             {#each asset.flats as f}
             <a
                 class="flat-list" 
@@ -49,6 +52,7 @@
                 </div>
             </a>
             {/each}
+            {/if}
         </div>
 
         <!-- <Download v-if="asset.form" :dl="asset.form" /> -->
