@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto'
+import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/kit/vite'
 // import sveltePreprocess from 'svelte-preprocess'
 
@@ -20,10 +20,10 @@ const config = {
 
 	kit: {
 		adapter: adapter({
+			fallback: '200.html'
 			// strict: false,
-			// fallback: '200.html'
 		}),
-		// prerender: { entries: [] }
+		prerender: { entries: [] }
 	},
 }
 
