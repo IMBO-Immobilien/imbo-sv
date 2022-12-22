@@ -16,21 +16,14 @@
 
 
 <script lang="ts">
-    import { locales, browserLang, browserLangISO } from '$lib/store'
-    let active = "en-US"
+    import { locales, browserLang } from '$lib/store'
+    let active = $browserLang
 
     const switchLocale = (l: string) => {
         // console.log("setting locale", l)
         active = l
         browserLang.set(l)
-        console.log("set locale code", $browserLang)
-        console.log("locale iso", $browserLangISO)
     }
-
-    // const langClass = (l: string) => {
-    //     console.log("locale code", $browserLang, l)
-    //     // return l === $browserLang ? "is-active" : ""
-    // }
 
     $: active
 

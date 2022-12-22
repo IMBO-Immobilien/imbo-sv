@@ -10,7 +10,7 @@
             <div class="menu-link" >
                 <Lang />
             </div>
-            <a class="menu-link" href="/contact">Kontakt</a>
+            <a class="menu-link" href="/contact">{t("contact").subscribe(s=>s)}</a>
             <a class="menu-link" href="/about">Impressum</a>
             <!-- <a class="menu-link" href="/assets">Overview</a> -->
         </div>
@@ -19,13 +19,15 @@
 
 <script lang="ts">
     import Menu from './Menu.svelte' 
-    import { sideBarState, siteData } from '$lib/store'
+    import { sideBarState, t } from '$lib/store'
     import Hamburger from './Hamburger.svelte'
     import Lang from './Lang.svelte'
 
     const toggleSideBar = () => {
         sideBarState.set(!$sideBarState)
     }
+
+    // $: lang = $browserLang
 
 </script>
 
