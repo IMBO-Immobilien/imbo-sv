@@ -76,7 +76,7 @@
     import IMGSrc from '$lib/components/IMGSrc.svelte'
     import Content from '$lib/components/Content.svelte'
     import SVGImg from '$lib/components/SVGImg.svelte'
-    import type { Asset, Block } from '$lib/types'
+    import type { Asset, BlockSchemaType } from '$lib/types'
     import { browserLang } from '$lib/store'
     import { page } from '$app/stores'
 
@@ -109,7 +109,7 @@
             }
         }
 
-    const getBlocks = (k: string):Block[] => {
+    const getBlocks = (k: string):BlockSchemaType[] => {
             let keyDE = k + "DE"
             let keyEN = k + "EN"
             switch ($browserLang) {

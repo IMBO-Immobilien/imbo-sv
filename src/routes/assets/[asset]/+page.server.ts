@@ -5,12 +5,13 @@ import type { RouteParams } from './$types'
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async (ctx: {params: RouteParams}) =>{
+    let assetFetch = <Asset>{}
     try {
-        const assetFetch = await client.fetch(assetQuery, { asset: ctx.params.asset }) as Asset
-        return {
-            asset: assetFetch
-        }
+        assetFetch = await client.fetch(assetQuery, { asset: ctx.params.asset }) as Asset
     } catch (error) {
         console.error(error)
+    }
+    return {
+        asset: assetFetch
     }
 }

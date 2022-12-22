@@ -68,7 +68,7 @@
 
     import Swipe from 'swipejs'
 
-    export let collection:Collection 
+    export let collection:Collection = <Collection>{} 
     export let imageID = "" 
     export let nextImageID = "" 
     export let imageIDX = 0
@@ -176,7 +176,7 @@
     const back = (defaultRoute = '/') => {
         const ref = document.referrer
         // document.body.style.backgroundColor = '#ffffff'
-        goto(ref.length > 0 ? ref : defaultRoute)
+        goto(ref?.length > 0 ? ref : defaultRoute)
     }
 
     const doKeys = (e: KeyboardEvent) => {
