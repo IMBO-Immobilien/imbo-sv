@@ -18,7 +18,7 @@ const codeToISO=(code: LocaleObject["code"])=>{
     return locales.find(l=>l.code == code) as LocaleObject
 }
 
-export const t = (word: string) => derived([translations, browserLangISO], ([$tr, $blISO]) => {
+export const trans = (word: string) => derived([translations, browserLangISO], ([$tr, $blISO]) => {
     // console.log("$tr", $tr)
     // console.log("iso", $blISO)
     // console.log("word", word)
@@ -29,6 +29,7 @@ export const t = (word: string) => derived([translations, browserLangISO], ([$tr
     }
     return ""
 })
+
 
 // t('rooms').subscribe(s=>console.log("tr",s))
 // t('management').subscribe(s=>console.log("tr",s))
