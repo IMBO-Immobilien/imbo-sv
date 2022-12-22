@@ -23,22 +23,22 @@
 
 <style lang="scss">
 
-.show-back {
-    opacity: 1;
-    pointer-events: all;
-}
-.hide-back {
-    opacity: 0;
-    pointer-events: none;
-}
-.back-arrow {
-    position: absolute;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
-    left: var(--gap);
-    top: var(--gap);
-}
+// .show-back {
+//     opacity: 1;
+//     pointer-events: all;
+// }
+// .hide-back {
+//     opacity: 0;
+//     pointer-events: none;
+// }
+// .back-arrow {
+//     position: absolute;
+//     z-index: 10;
+//     width: 50px;
+//     height: 50px;
+//     left: var(--gap);
+//     top: var(--gap);
+// }
 
 .copyright {
     transform-origin: top right;

@@ -1,7 +1,7 @@
 <!-- <Menu /> -->
 <nav>
     <div class="sidebar" id="sidebar">
-        <div on:click={toggleSideBar} class="hamburger" >
+        <div on:click={toggleSideBar} class="hamburger" on:keydown>
             <Hamburger  />
         </div>
         <div class="spacer" />
@@ -35,30 +35,30 @@
             cursor: pointer;
         }
     }
-    .privacy-link {
-        a {
-            display: block;
-        }
-        font-size: 12px;
-        line-height: 12px;
-        text-transform: uppercase;
-    }
-    .base {
-        position: fixed;
-        right: var(-gap);
-        bottom: var(-gap);
+    // .privacy-link {
+    //     a {
+    //         display: block;
+    //     }
+    //     font-size: 12px;
+    //     line-height: 12px;
+    //     text-transform: uppercase;
+    // }
+    // .base {
+    //     position: fixed;
+    //     right: var(-gap);
+    //     bottom: var(-gap);
     
-        transform-origin: left;
-        transform: rotate(90deg);
+    //     transform-origin: left;
+    //     transform: rotate(90deg);
     
-        font-size: 13px;
-        transition: opacity .4s;
-    }
+    //     font-size: 13px;
+    //     transition: opacity .4s;
+    // }
     
-    .address {
-        display: inline-block;
-        padding-top: 10px;
-    }
+    // .address {
+    //     display: inline-block;
+    //     padding-top: 10px;
+    // }
     .menu-link {
         font-size: 20px;
         line-height: 30px;
@@ -70,12 +70,12 @@
         flex: 1;
     }
     
-    .bold {
-        font-weight: bold;
-    }
-    .regular {
-        font-weight: normal;
-    }
+    // .bold {
+    //     font-weight: bold;
+    // }
+    // .regular {
+    //     font-weight: normal;
+    // }
     
     .sidebar {
         position: fixed;
@@ -93,9 +93,9 @@
     .menu {
         flex: 0;
     }
-    .back {
-        flex: 0;
-    }
+    // .back {
+    //     flex: 0;
+    // }
     .foot-element {
         padding-top: 5em;
         flex: 0;
@@ -132,22 +132,22 @@
             left: 10px;
         }
     
-        .open {
-            left: 0;
-            .base {
-                opacity: 1;
-            }
-        }
+        // .open {
+        //     left: 0;
+        //     .base {
+        //         opacity: 1;
+        //     }
+        // }
     
-        .copyright {
-            padding-right: 10px;
-            background-color: rgba(255, 255, 255, 0.95);
-        }
+        // .copyright {
+        //     padding-right: 10px;
+        //     background-color: rgba(255, 255, 255, 0.95);
+        // }
     
-        .base {
-            opacity: 0;
-            bottom: 0;
-            left: 10px;
-        }
+        // .base {
+        //     opacity: 0;
+        //     bottom: 0;
+        //     left: 10px;
+        // }
     }
 </style>

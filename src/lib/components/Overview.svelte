@@ -1,4 +1,5 @@
 <div>
+    {#if Array.isArray($assetData)}
     {#each $assetData as a}
     <a 
         class="asset-overview" 
@@ -28,6 +29,9 @@
         </div>
     </a>
     {/each}
+    {:else}
+    <div>Data not an Array...</div>
+    {/if}
 </div>
 
 <script lang="ts">
@@ -68,7 +72,7 @@
         }
     }
 
-    // export let assets:Asset[] = []
+    // $: console.log("asset", $assetData)
 </script>
 
 <style lang="scss">

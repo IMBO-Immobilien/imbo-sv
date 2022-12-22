@@ -1,14 +1,12 @@
-<div 
-    class="img-container" 
->
+<div class="img-container" >
     <img
+        class:loaded 
+        bind:this={ thisImage }
         style="aspect-ratio: { dimensions.aspectRatio.toString() };"
         alt={ alt }
         loading="lazy"
         width="100%"
         height="auto"
-        class:loaded 
-        bind:this={ thisImage }
     >
 
     {#if copyright?.name}
@@ -22,22 +20,25 @@ export let dimensions = <Dimensions>{}
 export let copyright = <People>{}
 export let crop = <Crop>{}
 
+export let loaded = false
 export let aspectRatio = "1"
 // export let height = 500
 export let width = 1200
 export let quality = 70
-export let src = ""
+export let src:string|null = null
 export let alt = ""
 export let thisImage = <HTMLImageElement>{}
 
-export let loaded = false
 
 onMount(() => {
-    thisImage.onload = () => {
+    thisImage.onload = (e: any) => {
+        // console.log("loaded!", e)
         loaded = true
     }
     thisImage.src = getURL()
 }) 
+
+// $: console.log("thisImage",thisImage)
 
 const calcCrop = (): string => {
     let left = Math.floor(dimensions.width * crop.left)

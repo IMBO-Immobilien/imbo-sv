@@ -23,10 +23,10 @@
 </script>
 
 <style lang="scss">
-    .opening-hours {
-        padding-top: var(--gap);
-        white-space: nowrap;
-    }
+    // .opening-hours {
+    //     padding-top: var(--gap);
+    //     white-space: nowrap;
+    // }
     .country {
         font-weight: bold;
         padding-bottom: var(--gap);

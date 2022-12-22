@@ -22,10 +22,10 @@ import { siteData } from '$lib/store'
 </script>
 
 <style lang="scss">
-    .spacer {
-        // height: 20vh;
-        flex: 1;
-    }
+    // .spacer {
+    //     // height: 20vh;
+    //     flex: 1;
+    // }
 
     .front-container {
         position: relative;
@@ -46,11 +46,11 @@ import { siteData } from '$lib/store'
     }
 
     
-    .welcome {
-        grid-area: text;
-        font-size:32px;
-        line-height:0px;
-    }
+    // .welcome {
+    //     grid-area: text;
+    //     font-size:32px;
+    //     line-height:0px;
+    // }
 
     .company {
         overflow: visible;
@@ -62,28 +62,28 @@ import { siteData } from '$lib/store'
         line-height:50px;
     }
 
-    .page-enter-active,
-    .page-leave-active {
-        transition: opacity 0.5s;
-    }
-    .page-enter,
-    .page-leave-to {
-        opacity: 0;
-    }
+    // .page-enter-active,
+    // .page-leave-active {
+    //     transition: opacity 0.5s;
+    // }
+    // .page-enter,
+    // .page-leave-to {
+    //     opacity: 0;
+    // }
 
     @media only screen and (orientation: portrait) and (max-width: 600px) {
-        .image-container {
-            position: relative;
-            width: 100%;
-        }
+        // .image-container {
+        //     position: relative;
+        //     width: 100%;
+        // }
 
-        .image {
-            width: 100%;
-        }
+        // .image {
+        //     width: 100%;
+        // }
 
-        .welcome {
-            font-size: 24px;
-        }
+        // .welcome {
+        //     font-size: 24px;
+        // }
         .company {
             font-size: 36px;
         }

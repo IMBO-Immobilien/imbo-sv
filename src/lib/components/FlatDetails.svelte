@@ -9,8 +9,8 @@
             <SVGImg 
                 src={f.url} 
                 alt={f.title}
+                dimensions={f.dimensions} 
             />
-                <!-- styl="aspectRatio: {f.dimensions.aspectRatio}"  -->
         </a>
         {/each}
     </div>

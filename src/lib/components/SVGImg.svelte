@@ -1,29 +1,45 @@
 <img 
-    src={src}
+    class:loaded 
+    bind:this={ thisImage }
     alt={alt}
-    style={styl}
-    loading={lazy}
-    on:load|once={loaded}
-    class="svg-image"
+    style="aspect-ratio:{dimensions.aspectRatio.toString()}"
+    loading="lazy"
     width="100%"
     height="100%"
 >
-    <!-- fit="inside" -->
 
 <script lang="ts">
+    import { onMount } from "svelte"
+    import type { Dimensions } from "$lib/types"
     export let src = ""
     export let alt = ""
-    export let styl = ""
-    export let lazy = "lazy"
+    export let loaded = false
+    export let dimensions = <Dimensions>{}
 
-    const loaded = (e: any) => {
+    let thisImage = <HTMLImageElement>{}
 
-    }
+    onMount(()=>{
+        thisImage.onload = (e: any) => {
+            // console.log("loaded!", e)
+            loaded = true
+        }
+        thisImage.src = src
+    })
+
+
 </script>
 
-<!-- <style lang="scss">
-.svg-image {
-    opacity: 0;
-    transition: opacity 1s;
-}
-</style> -->
+<style lang="scss">
+    img {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+
+    img.loaded {
+        opacity: 1;
+    }
+// .svg-image {
+//     opacity: 0;
+//     transition: opacity 1s;
+// }
+</style>

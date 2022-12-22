@@ -29,11 +29,11 @@
 </script>
 
 <style lang="scss">
-    p {
-        // padding-top: 0px;
-        padding: 0;
-        margin: 0;
-    }
+    // p {
+    //     // padding-top: 0px;
+    //     padding: 0;
+    //     margin: 0;
+    // }
 
     .about {
         margin: auto;

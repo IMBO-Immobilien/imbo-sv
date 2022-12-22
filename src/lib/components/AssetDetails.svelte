@@ -4,9 +4,9 @@
         <a 
             href={`/assets/${$page.params.asset}/images/${i.slug.current}`}
             class="image-link"
+            style="aspect-ratio: { i.dimensions.aspectRatio.toString() };"
         >
-        <!-- fit={"inside"} -->
-        <div class="img-with-caption">
+        <div class="img-with-caption" >
             <IMGSrc
                 dimensions={i.dimensions}
                 copyright={i.author}
@@ -38,7 +38,7 @@
                     <SVGImg 
                         src={f.plans[0].url}
                         alt={f.plans[0].title}
-                        styl={`aspectRatio: ${f.plans[0].dimensions.aspectRatio}`}
+                        dimensions={f.plans[0].dimensions}
                     />
                 </div>
 
@@ -124,6 +124,8 @@
 <style lang="scss">
     .image-link {
         display: block;
+        height: auto;
+        width: 100%;
     }
 
     .obj-images {
@@ -134,6 +136,8 @@
 
     .img-with-caption {
         padding-bottom: var(--gap-rel);
+        width: 100%;
+        height: auto;
     }
     
     .columns {
@@ -141,35 +145,35 @@
         column-gap: var(--gap-rel);
     }
 
-    .icon {
-        width: 20px;
-        height: 20px;
-    }
+    // .icon {
+    //     width: 20px;
+    //     height: 20px;
+    // }
     
     .more-info {
         padding-top: var(--gap);
     }
     
-    .flat-position {
-        span:first-child {
-            padding-right: 5px;
-        }
-    }
+    // .flat-position {
+    //     span:first-child {
+    //         padding-right: 5px;
+    //     }
+    // }
 
-    .flat-number {
-        font-size: 56px;
-        padding-bottom: 10px;
-    }
+    // .flat-number {
+    //     font-size: 56px;
+    //     padding-bottom: 10px;
+    // }
 
-    .taken {
-        padding: 0;
-        margin: 0;
-        display: inline;
-        font-size: 12px;
-        line-height: 12px;
-        color: red;
-        text-transform: uppercase;
-    }
+    // .taken {
+    //     padding: 0;
+    //     margin: 0;
+    //     display: inline;
+    //     font-size: 12px;
+    //     line-height: 12px;
+    //     color: red;
+    //     text-transform: uppercase;
+    // }
 
     .text-container {
         display: block;
@@ -182,10 +186,10 @@
         // @include font-medium;
     }
     
-    .obj-info {
-        padding-top: var(--gap);
-        padding-bottom: var(--gap);
-    }
+    // .obj-info {
+    //     padding-top: var(--gap);
+    //     padding-bottom: var(--gap);
+    // }
     
     .obj-name {
         font-size: 32px;
@@ -193,16 +197,16 @@
         padding-bottom: var(--gap);
     }
     
-    .obj-description {
-        font-size: 17px;
-        line-height: 27px;
-    }
+    // .obj-description {
+    //     font-size: 17px;
+    //     line-height: 27px;
+    // }
 
-    p {
-        strong {
-            font-size: 24px!important;
-        }
-    }
+    // p {
+    //     strong {
+    //         font-size: 24px!important;
+    //     }
+    // }
     
     .obj-images {
         display: block;
@@ -263,9 +267,9 @@
             max-width: var(--content-width-mob);
         }
     
-        .text-container {
-            // @include font-small;
-        }
+        // .text-container {
+        //     // @include font-small;
+        // }
     
         .obj-name {
             font-size: 17px;
@@ -274,10 +278,10 @@
             // font-weight: bold;
         }
     
-        .obj-description {
-            font-size: 13px;
-            line-height: 20px;
-        }
+        // .obj-description {
+        //     font-size: 13px;
+        //     line-height: 20px;
+        // }
     
         .flat-list {
             font-size: 17px;

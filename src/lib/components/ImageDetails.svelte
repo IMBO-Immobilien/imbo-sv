@@ -225,34 +225,34 @@
         // width: 100vw;
         // height: 100vh;
         object-fit: contain;
-        img {
-            width: 100vw;
-            height: 100vh;
-        }
+        // img {
+        //     width: 100vw;
+        //     height: 100vh;
+        // }
     }
     // .type, .text-title {
     //     // font-weight: bold;
     // }
     
-    .date {
-        font-weight: normal;
-    }
+    // .date {
+    //     font-weight: normal;
+    // }
     
-    .caption, .text-title {
-        h1 {
-            font-size: large;
-            // @include font-medium;
-        }
-    }
+    // .caption, .text-title {
+    //     h1 {
+    //         font-size: large;
+    //         // @include font-medium;
+    //     }
+    // }
     
-    .imgCopyright {
-        color: gray;
-        font-size: small;
-    }
+    // .imgCopyright {
+    //     color: gray;
+    //     font-size: small;
+    // }
     
-    .text-header {
-        padding-bottom: 20px;
-    }
+    // .text-header {
+    //     padding-bottom: 20px;
+    // }
     
     .text-title {
         margin-top: auto;

@@ -24,6 +24,9 @@ const getSiteData = async() => {
 
 const getAssetData = async() => {
     let a = await client.fetch(assetOverviewQuery) as Asset[]
+    if (!Array.isArray(a)) {
+        console.warn("assetData not an array", a)
+    }
     assetData.set(a)
 }
 
