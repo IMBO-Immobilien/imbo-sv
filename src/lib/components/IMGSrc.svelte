@@ -3,7 +3,6 @@
 >
     <img
         style="aspect-ratio: { dimensions.aspectRatio.toString() };"
-        src={ getURL() }
         alt={ alt }
         loading="lazy"
         width="100%"
@@ -37,6 +36,7 @@ onMount(() => {
     thisImage.onload = () => {
         loaded = true
     }
+    thisImage.src = getURL()
 }) 
 
 const calcCrop = (): string => {
