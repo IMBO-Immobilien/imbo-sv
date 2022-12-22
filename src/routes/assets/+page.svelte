@@ -1,1 +1,5 @@
-<h1>All Assets</h1>
+<script>
+    import Overview from "$lib/components/Overview.svelte"
+
+</script>
+<Overview />

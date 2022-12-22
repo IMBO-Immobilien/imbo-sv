@@ -8,12 +8,12 @@ import  { assetData } from '$lib/store'
         <!-- v-if="o.slug.current" -->
         <!-- v-for="o in assets" 
         :key="o.slug.current"  -->
-        <!-- {#each $assetData as o}
+        {#each $assetData as o}
             <a 
                 href="{o.slug.current}"
                 class="menu-link" 
             >{o.menuName}</a>
-        {/each} -->
+        {/each}
             <!-- :to="{name: 'assets-asset', params: { asset: o.slug.current }}" -->
     </div>
 </div>
