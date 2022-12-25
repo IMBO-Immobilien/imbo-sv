@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-cloudflare'
 import { vitePreprocess } from '@sveltejs/kit/vite'
 // import sveltePreprocess from 'svelte-preprocess'
 
@@ -20,9 +20,14 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			// fallback: 'app.html'
-			// strict: false,
+			pages: 'public',
+            assets: 'public',
+            fallback: null,
+            precompress: false
 		}),
+		prerender: {
+			default: true
+		}
 		// prerender: { entries: [] }
 	},
 }
