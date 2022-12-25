@@ -1,17 +1,20 @@
 import client from "$lib/sanityClient"
 import { assetQuery } from '$lib/queries'
 import type { Asset } from '$lib/types'
-import type { RouteParams } from './$types'
+import type { RouteParams, PageServerLoad } from './$types'
+import { error } from '@sveltejs/kit'
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async (ctx: {params: RouteParams}) =>{
+export {} //  const prerender = true
+
+export const load = (async (ctx: { params: RouteParams }) =>{
     let assetFetch = <Asset>{}
     try {
         assetFetch = await client.fetch(assetQuery, { asset: ctx.params.asset }) as Asset
-    } catch (error) {
-        console.error(error)
+        return {
+            asset: assetFetch
+        }
+    } catch (err) {
+        console.error(err)
     }
-    return {
-        asset: assetFetch
-    }
-}
+    throw error(404, 'Not found')
+}) satisfies PageServerLoad

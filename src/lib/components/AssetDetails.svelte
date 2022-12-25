@@ -3,7 +3,7 @@
         {#if Array.isArray(asset.images)}
         {#each asset.images as i}
         <a 
-            href={`/assets/${$page.params.asset}/images/${i.slug.current}`}
+            href="/assets/{$page.params.asset}/images/{i.slug.current}"
             class="image-link"
             style="aspect-ratio: { i.dimensions.aspectRatio.toString() };"
         >
@@ -34,7 +34,7 @@
             {#each asset.flats as f}
             <a
                 class="flat-list" 
-                href={`/assets/${$page.params.asset}/flats/${f.slug.current}`}
+                href="/assets/{$page.params.asset}/flats/{f.slug.current}"
             >
                 <!-- href={`assets-asset-flat', params:{asset: asset.slug.current, flat: f.slug.current}}" -->
                 <div class="floorplan-mini">

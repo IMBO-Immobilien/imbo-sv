@@ -1,10 +1,11 @@
 import client from "$lib/sanityClient"
 import { flatImageQuery } from '$lib/queries'
 import type { Asset, Collection } from '$lib/types'
-import type { RouteParams } from './$types'
+import type { RouteParams, PageServerLoad } from './$types'
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async (ctx: {params: RouteParams}) =>{
+export {} //  const prerender = true
+
+export const load = (async (ctx: {params: RouteParams}) =>{
     let collection = <Collection>{}
     try {
         const asset = await client.fetch(flatImageQuery, { 
@@ -18,14 +19,11 @@ export const load = async (ctx: {params: RouteParams}) =>{
                 collection.currentImageID = 'image-' + idx
             }
         })
-    
-        // return {
-        //     collection
-        // }
     } catch (error) {
         console.error(error)
     }
+
     return {
         collection
     }
-}
+}) satisfies PageServerLoad

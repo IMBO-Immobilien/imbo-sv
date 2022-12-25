@@ -1,12 +1,11 @@
 import client from "$lib/sanityClient"
 import { assetImageQuery } from '$lib/queries'
 import type { Asset, Collection } from '$lib/types'
-import type { RouteParams } from './$types'
+import type { RouteParams, PageServerLoad } from './$types'
 
-// export const prerender = true
+export {} //  const prerender = true
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async (ctx: {params: RouteParams}) =>{
+export const load = (async (ctx: { params: RouteParams }) =>{
     let collection = <Collection>{}
     try {
         const asset = await client.fetch(assetImageQuery, { asset: ctx.params.asset }) as Asset
@@ -21,8 +20,8 @@ export const load = async (ctx: {params: RouteParams}) =>{
     } catch (error) {
         console.error(error)
     }
-    console.log("collection",collection)
+
     return {
         collection
     }
-}
+}) satisfies PageServerLoad

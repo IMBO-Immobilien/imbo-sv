@@ -7,6 +7,4 @@
 
     export let data:PageData
     export const { collection } = data
-
-    // $: console.log("image collection", collection)
 </script>

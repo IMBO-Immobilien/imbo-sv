@@ -3,7 +3,7 @@
         {#each flat.plans as f}
         <a 
             class="link"
-            href={`/assets/${$page.params.asset}/flats/${$page.params.flat}/plans/${f.slug.current}`}
+            href="/assets/{$page.params.asset}/flats/{$page.params.flat}/plans/{f.slug.current}"
         >
         <!-- {f.dimensions} -->
             <SVGImg 
@@ -22,31 +22,29 @@
             <!-- {$tc('taken')} -->
         </div>
         {/if}
-        <div class={[showFlatmenu ? 'show': 'hide', 'drop-down'].join(" ")}>
-            <!-- {#each flat.flatlist as f}
+        <!-- {JSON.stringify(flat)} -->
+        <!-- <div class={[showFlatmenu ? 'show': 'hide', 'drop-down'].join(" ")}>
+            {#each flat.flatlist as f}
             <div class={[checkFlat(f.flatNumber), 'flat'].join(" ")}>
                 <a 
                     href={`/assets/${$page.params.asset}/flats/${f.slug}`}
                 >{f.flatNumber}</a>
             </div>
-            {/each} -->
-        </div>
+            {/each}
+        </div> -->
     </div>
 
     <h1 class="apt-name">{getTitle()}</h1>
     <div class="apt-description">{getTranslation("description")}</div>
 
     <div class="image-container columns images">
-        {#each flat.images as i, idx}
+        {#each flat.images as i}
         <a 
-            href={`/assets/${$page.params.asset}/flats/${$page.params.flat}/images/${i.slug.current}`}
+            href="/assets/{$page.params.asset}/flats/{$page.params.flat}/images/{i.slug.current}"
             class="link"
         >
-            <!-- key="idx"  -->
             <div class="image-wrapper">
-                <!-- fit="inside" -->
-                <!-- :loading="true" -->
-                <!-- {i.image} -->
+
                 <IMGSrc
                     width={600}
                     dimensions={i.dimensions}
@@ -54,7 +52,7 @@
                     src={i.url}
                     alt={i.title}
                 />
-                    <!-- cl='img-with-caption' -->
+
                 <div class="caption">{getCaption(i)}</div>
             </div>
         </a>

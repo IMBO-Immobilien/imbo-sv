@@ -44,6 +44,11 @@ export const assetOverviewQuery = `*[_type == "assets"]{
 
 export const flatQuery = `*[_type == "assets" && slug.current == $asset][0]{
     slug,
+    "flatlist": flats[] {
+        flatNumber,
+        rooms,
+        "slug": slug.current
+    },
     "flat": flats[slug.current == $flat][0] {
         ...,
         "images": images[] {
@@ -62,7 +67,7 @@ export const flatQuery = `*[_type == "assets" && slug.current == $asset][0]{
             "dimensions": image.asset->metadata.dimensions,
             author->{ name }
         }
-    },
+    }
 }`
 
 export const assetImageQuery = `*[_type == "assets" && slug.current == $asset][0]{

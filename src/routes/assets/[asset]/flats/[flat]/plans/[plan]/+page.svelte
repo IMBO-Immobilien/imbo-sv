@@ -7,5 +7,4 @@
 
     export let data:PageData
     export const { collection } = data
-
 </script>

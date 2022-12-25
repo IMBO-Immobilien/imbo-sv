@@ -3,7 +3,7 @@
     {#each $assetData as a}
     <a 
         class="asset-overview" 
-        href="{'/assets/' + a.slug.current}"
+        href="/assets/{a.slug.current}"
     >
         <div class="asset front-grid">
             <!-- {{a.overviewImage.dimensions}} -->
