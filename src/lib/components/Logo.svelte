@@ -1,40 +1,39 @@
 <nav class="head-container " >
-    {#if logo}
+    <!-- {#if logo} -->
+    <!-- {l.url} -->
     <!-- {JSON.stringify(logo)} -->
     <a href="/">
         <img 
-            alt={logo.alt} 
+            alt={l.alt} 
+            src={l.url}
             class="logo" 
-            class:loaded 
-            bind:this={ thisImage }
             loading="lazy"
+            style="aspect-ratio: { l.dimensions.aspectRatio.toString() };"
         />
-            <!-- style="aspect-ratio: { logo.dimensions.aspectRatio.toString() };" -->
     </a>
-    {/if}
+    <!-- {/if} -->
 </nav>
 
 <script lang="ts">
-    // import type { IMG } from "$lib/types"
     import { onMount } from "svelte"
-    import { siteData } from "$lib/store"
-    export let loaded = false
+    // import { siteData } from "$lib/store"
+    import type { IMG } from "$lib/types"
 
-    export let thisImage = <HTMLImageElement>{}
+    export let logo = <IMG>{}
 
 
     onMount(() => {
-        if (logo?.url) {
-            thisImage.onload = () => {
-                loaded = true
-            }
+        // if (l.url) {
+        //     console.log("logo", logo)
+        //     thisImage.onload = () => {
+        //         loaded = true
+        //     }
 
-            thisImage.src = logo.url
-        }
+        //     thisImage.src = l.url
+        // }
     }) 
 
-    $: logo = $siteData.logo
-
+    $: l = logo 
 </script>
 
 <style lang="scss">
@@ -58,13 +57,13 @@
 }
 
 img {
-    opacity: 0;
+    // opacity: 0;
     transition: opacity 1s ease-out;
 }
 
-img.loaded {
-    opacity: 1;
-}
+// img.loaded {
+//     opacity: 1;
+// }
 
 @media only screen and (max-width: 1300px) {
     .logo {

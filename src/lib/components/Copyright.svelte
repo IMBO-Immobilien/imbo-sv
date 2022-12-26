@@ -1,5 +1,5 @@
 <div class="copyright-container">
-    <Content blocks={getCopyright()} />
+    <Content blocks={ getCopyright() } />
 </div>
 
 <script lang="ts">

@@ -1,4 +1,4 @@
-import type { BlockSchemaType, Slug } from '@sanity/types'
+import type { BlockSchemaType as Block, Slug } from '@sanity/types'
 // type Locale = string
 export interface LocaleObject  {
     code: string
@@ -89,19 +89,19 @@ export interface Address {
 export interface Site {
     description?: string
     siteName: string
-    companyName: BlockSchemaType[]
+    companyName: Block[]
     companyAddress: Address
     contactEmail: string
 
-    impressum?: BlockSchemaType[]
+    impressum?: Block[]
     about: {
         management: People[],
         webDesign: People[],
     }
-    copyrightDE: BlockSchemaType[]
-    extendedCopyrightDE?: BlockSchemaType[]
-    copyrightEN: BlockSchemaType[]
-    extendedCopyrightEN?: BlockSchemaType[]
+    copyrightDE: Block[]
+    extendedCopyrightDE?: Block[]
+    copyrightEN: Block[]
+    extendedCopyrightEN?: Block[]
     openingHoursDE: string
     openingHoursEN: string
     image?: IMG
@@ -212,5 +212,5 @@ export interface Flat {
 }
 
 export {
-    BlockSchemaType, Slug
+    Block, Slug
 }
