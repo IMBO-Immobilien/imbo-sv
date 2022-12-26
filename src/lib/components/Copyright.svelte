@@ -4,11 +4,11 @@
 
 <script lang="ts">
     import { browserLang } from "$lib/store"
-    import type { Site, Block } from "$lib/types"
+    import type { Site, PortableTextBlock } from "$lib/types"
     import Content from "./Content.svelte"
 
     export let site:Site 
-    const getCopyright = ():Block[] => {
+    const getCopyright = ():PortableTextBlock[] => {
             switch ($browserLang) {
                 case "de":
                     if (typeof site.copyrightDE !== "undefined"){

@@ -8,9 +8,9 @@
             src={l.url}
             class="logo" 
             loading="lazy"
-            style="aspect-ratio: { l.dimensions.aspectRatio.toString() };"
-        />
-    </a>
+            />
+        </a>
+        <!-- style="aspect-ratio: { l.dimensions.aspectRatio.toString() };" -->
     <!-- {/if} -->
 </nav>
 

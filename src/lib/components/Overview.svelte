@@ -35,12 +35,12 @@
 </div>
 
 <script lang="ts">
-    import type { Asset, BlockSchemaType } from '$lib/types'
+    import type { Asset, PortableTextBlock } from '$lib/types'
     import Content from './Content.svelte'
     import IMGSrc from './IMGSrc.svelte'
     import { browserLang, assetData } from '$lib/store'
 
-    const getBlocks = (a: Asset, k: string):BlockSchemaType[] => {
+    const getBlocks = (a: Asset, k: string):PortableTextBlock[] => {
             let keyDE = k + "DE"
             let keyEN = k + "EN"
             switch ($browserLang) {
