@@ -1,6 +1,5 @@
 <ImageDetails collection={ collection } />
 
-
 <script lang="ts">
     import type { PageData } from './$types'
     import ImageDetails from '$lib/components/ImageDetails.svelte'

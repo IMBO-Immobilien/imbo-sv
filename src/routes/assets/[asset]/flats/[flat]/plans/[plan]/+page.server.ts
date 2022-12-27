@@ -2,10 +2,9 @@ import client from "$lib/sanityClient"
 import { flatPlanQuery } from '$lib/queries'
 import type { Asset, Collection } from '$lib/types'
 import type { RouteParams, PageServerLoad } from './$types'
+import { error } from '@sveltejs/kit'
 
-export {} //  const prerender = true
-
-export const load = (async (ctx: { params: RouteParams }) =>{
+export const load:PageServerLoad = async (ctx: { params: RouteParams }) =>{
     let collection = <Collection>{}
     try {
         const asset = await client.fetch(flatPlanQuery, { 
@@ -19,11 +18,12 @@ export const load = (async (ctx: { params: RouteParams }) =>{
                 collection.currentImageID = 'image-' + idx
             }
         })
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
+        throw error(404, '[plan] error '+err)
     }
 
     return {
         collection
     }
-}) satisfies PageServerLoad
+}

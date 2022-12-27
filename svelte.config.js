@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-auto'
-// import stat from '@sveltejs/adapter-static'
+// import adapter from '@sveltejs/adapter-auto'
+import adapter from '@sveltejs/adapter-node'
 // import cloudflare from '@sveltejs/adapter-cloudflare'
 import { vitePreprocess } from '@sveltejs/kit/vite'
 // import sveltePreprocess from 'svelte-preprocess'
@@ -8,25 +8,18 @@ import { vitePreprocess } from '@sveltejs/kit/vite'
 
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	
-	preprocess: vitePreprocess({
-		scss: {
-			prependData: '@use "./src/lib/style/global.scss";'
-		}
-	}),
+
+	preprocess: vitePreprocess(),
 
 	kit: {
 		adapter: adapter({
-			// pages: 'public',
-            // assets: 'public',
-            // fallback: null,
-            // precompress: false
+			// fallback: '200.html'
 		}),
-		// prerender: {
-		// 	default: true
-		// 	entries: [] 
-		// }
+		// prerender: { entries: [
+		// 	"/assets/grenzsteig-kilchberg",
+		// 	"/assets",
+		// 	"/"
+		// ] }	
 	},
 }
 

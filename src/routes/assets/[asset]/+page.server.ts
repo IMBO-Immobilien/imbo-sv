@@ -4,9 +4,7 @@ import type { Asset } from '$lib/types'
 import type { RouteParams, PageServerLoad } from './$types'
 import { error } from '@sveltejs/kit'
 
-export {} //  const prerender = true
-
-export const load = (async (ctx: { params: RouteParams }) =>{
+export const load:PageServerLoad = async (ctx: { params: RouteParams }) =>{
     let assetFetch = <Asset>{}
     try {
         assetFetch = await client.fetch(assetQuery, { asset: ctx.params.asset }) as Asset
@@ -15,6 +13,6 @@ export const load = (async (ctx: { params: RouteParams }) =>{
         }
     } catch (err) {
         console.error(err)
+        throw error(404, '[asset] error '+ err)
     }
-    throw error(404, 'Not found')
-}) satisfies PageServerLoad
+}
