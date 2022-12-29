@@ -3,6 +3,7 @@ import { assetImageQuery } from '$lib/queries'
 import type { Asset, Collection } from '$lib/types'
 import type { RouteParams, PageServerLoad } from './$types'
 import { error } from '@sveltejs/kit'
+export const prerender = true
 
 export const load:PageServerLoad = async (ctx: { params: RouteParams }) =>{
     let collection = <Collection>{}

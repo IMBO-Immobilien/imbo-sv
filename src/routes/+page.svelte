@@ -21,7 +21,6 @@ import Overview from '$lib/components/Overview.svelte'
 import { siteData } from '$lib/store'
 import { error } from '@sveltejs/kit'
 
-// console.log("siteData", $siteData)
 if (!$siteData) {
     throw error(404, "SiteData not found")
 }

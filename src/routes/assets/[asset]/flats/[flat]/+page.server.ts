@@ -3,6 +3,7 @@ import { error } from '@sveltejs/kit'
 import { flatQuery } from '$lib/queries'
 import type { Asset, Flat } from '$lib/types'
 import type { RouteParams, PageServerLoad } from './$types'
+export const prerender = true
 
 export const load:PageServerLoad = async(ctx: { params: RouteParams }) =>{
     let flat = <Flat>{}

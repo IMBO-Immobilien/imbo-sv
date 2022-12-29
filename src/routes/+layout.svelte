@@ -7,9 +7,7 @@
     { browser } -->
 </div>
 
-
 <script lang=ts>
-    export const prerender = true
     import Logo from '$lib/components/Logo.svelte'
     import Sidebar from '$lib/components/Sidebar.svelte'
     import Copyright from '$lib/components/Copyright.svelte'
