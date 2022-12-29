@@ -12,14 +12,13 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: "index.html",
-			strict: false
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html'
 		}),
-		// prerender: { entries: [
-		// 	"/assets/grenzsteig-kilchberg",
-		// 	"/assets",
-		// 	"/"
-		// ] }	
+		// prerender: { 
+		// 	entries: [] 
+		// }
 	},
 }
 
